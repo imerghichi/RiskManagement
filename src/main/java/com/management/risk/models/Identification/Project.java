@@ -1,7 +1,10 @@
 package com.management.risk.models.Identification;
 
+
+
 import java.util.LinkedList;
 import java.util.List;
+
 
 public class Project {
     private long id_project;
@@ -38,4 +41,6 @@ public class Project {
         this.id_project = id_project;
     }
 
+    public Project() {
+    }
 }

@@ -1,6 +1,6 @@
 package com.management.risk.models.Analysis.TreesAnalysis.FaultTree;
 
-public enum OperandeEnum {
+public enum OperatorEnum {
     //NOT,
     OR, //1
     AND //2

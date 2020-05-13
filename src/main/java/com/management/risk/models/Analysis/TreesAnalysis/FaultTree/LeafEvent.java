@@ -4,7 +4,7 @@ public class LeafEvent{
     private String event_name;
     private EventType type;
     private float probability;
-    private OperandeEnum operande;
+    private OperatorEnum operande;
 
 
     public LeafEvent(String event_name, EventType type, float probability) {
@@ -19,11 +19,11 @@ public class LeafEvent{
         this.probability = probability;
     }
 
-    public OperandeEnum getOperande() {
+    public OperatorEnum getOperande() {
         return operande;
     }
 
-    public void setOperande(OperandeEnum operande) {
+    public void setOperande(OperatorEnum operande) {
         this.operande = operande;
     }
 

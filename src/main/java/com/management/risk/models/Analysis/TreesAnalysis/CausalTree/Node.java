@@ -1,5 +1,14 @@
 package com.management.risk.models.Analysis.TreesAnalysis.CausalTree;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Node {
     private String cause;
     private Child children = null;
@@ -8,19 +17,4 @@ public class Node {
         this.cause = cause;
     }
 
-    public String getCause() {
-        return cause;
-    }
-
-    public void setCause(String cause) {
-        this.cause = cause;
-    }
-
-    public Child getChildren() {
-        return children;
-    }
-
-    public void setChildren(Child children) {
-        this.children = children;
-    }
 }
