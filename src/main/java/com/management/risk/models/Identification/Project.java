@@ -2,15 +2,21 @@ package com.management.risk.models.Identification;
 
 
 
+import javax.persistence.*;
 import java.util.LinkedList;
 import java.util.List;
 
-
+@Entity
 public class Project {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_project;
     private String project_name;
+    @OneToMany
+    @JoinColumn()
     private List<TeamMember> teamMembers;
-    private LinkedList<Activity> taskProjects;
+    @OneToMany
+    private List<Activity> taskProjects;
 
     public List<TeamMember> getTeamMembers() {
         return teamMembers;

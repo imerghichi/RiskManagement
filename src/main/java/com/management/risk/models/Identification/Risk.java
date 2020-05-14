@@ -2,31 +2,50 @@ package com.management.risk.models.Identification;
 
 import com.management.risk.models.Mitigation.Response;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class Risk {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_risk;
     private String risk_name;
     private String description;
+    @OneToOne
     private TeamMember idetifier_risk;
+    @ManyToOne
     private Activity taskProject;
     private float probabilty;
     private float detection_difficulty;
     private float vulnerability; //when detected
+    @Enumerated(EnumType.STRING)
     private Impact impact;
     private boolean active; // vs latent
     private String consquence_description;
     private Date date_risk;
+    @Enumerated(EnumType.STRING)
     private Nature nature_risk;
+    @Enumerated(EnumType.STRING)
     private Origin origin_risk;
+    @Enumerated(EnumType.STRING)
     private Type type_risk;
-    private Category category;
+    @Enumerated(EnumType.STRING)
+    private CategoriesEnum category;
+    @Enumerated(EnumType.STRING)
     private OwnerLevel ownerLevel;
+    @Enumerated(EnumType.STRING)
     private Visibility visibility;
     private boolean detected;
+    @OneToOne
     private Response response;
 
+    public Risk(Activity taskProject) {
+        this.taskProject = taskProject;
+    }
+
+    public Risk() {
+    }
 
     public int impact(){
         return this.impact.getValue();
@@ -161,11 +180,11 @@ public class Risk {
         this.type_risk = type_risk;
     }
 
-    public Category getCategory() {
+    public CategoriesEnum getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(CategoriesEnum category) {
         this.category = category;
     }
 
@@ -193,4 +212,16 @@ public class Risk {
         this.response = response;
     }
 
+    public boolean isExternal(){
+        switch (this.category){
+            case customer_risk:
+                return true;
+            case competitor_risk:
+                return true;
+            case society_risk:
+                return true;
+            default:
+                return false;
+        }
+    }
 }
