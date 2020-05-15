@@ -3,13 +3,15 @@ package com.management.risk.models.Identification;
 
 import java.util.ArrayList;
 
+import static com.management.risk.models.Identification.CategoriesEnum.competitor_risk;
+
 public class Test {
-    public static void main(String[] args){
-     /*
+  /*  public static void main(String[] args){
+
         Risk risk;
         risk = new Risk();
         risk.setId_risk(1);
-        risk.setCategory(new Category(CategoriesEnum.competitor_risk));
+        risk.setCategory(competitor_risk);
         risk.setDetected(true);
         risk.setDetection_difficulty(0.5f);
         risk.setVulnerability(0.3f);
@@ -19,7 +21,7 @@ public class Test {
         Risk risk2;
         risk2 = new Risk();
         risk2.setId_risk(2);
-        risk2.setCategory(new Category(CategoriesEnum.competitor_risk));
+        risk2.setCategory(competitor_risk);
         risk2.setDetected(true);
         risk2.setDetection_difficulty(0.5f);
         risk2.setVulnerability(0.4f);
@@ -31,9 +33,8 @@ public class Test {
 
         RiskMatrix riskMatrix = new RiskMatrix(risks);
         System.out.println(riskMatrix.establish_matrix_risk().toString());
-*/
 
 
 
-    }
+    }*/
 }

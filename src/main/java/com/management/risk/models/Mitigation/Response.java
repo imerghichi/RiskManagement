@@ -2,31 +2,28 @@ package com.management.risk.models.Mitigation;
 
 
 import com.management.risk.models.Identification.Risk;
+import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
+@Data
 @Entity
-public abstract class Response {
+public  class Response {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id_response;
-    @OneToOne
-    private Risk risk;
-    public abstract Response response ();
-
-    public long getId_response() {
-        return id_response;
+    protected long id_response;
+    protected boolean active;
+    protected boolean complete;
+    protected String response_name;
+    @OneToMany
+    protected List<Task> tasks;
+    @Enumerated(EnumType.STRING)
+    protected NonPlanResponseEnum nonPlanResponseEnum;
+    public Response() {
     }
 
-    public void setId_response(long id_response) {
-        this.id_response = id_response;
-    }
+    public Response(boolean active, boolean complete, String response_name, List<Task> tasks, NonPlanResponseEnum nonPlanResponseEnum) {
 
-    public Risk getRisk() {
-        return risk;
-    }
-
-    public void setRisk(Risk risk) {
-        this.risk = risk;
     }
 }

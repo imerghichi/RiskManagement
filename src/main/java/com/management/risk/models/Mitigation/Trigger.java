@@ -3,13 +3,11 @@ package com.management.risk.models.Mitigation;
 public class Trigger extends Task {
     private int level;
     private String condition;
-    public Trigger(String task) {
-        super(task);
-    }
 
-    public Trigger(String task, String condition) {
-        super(task);
+    public Trigger(int level, String condition) {
+        this.level =level;
         this.condition = condition;
     }
+
 
 }

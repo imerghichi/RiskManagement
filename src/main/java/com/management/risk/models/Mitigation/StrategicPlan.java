@@ -10,9 +10,4 @@ public class StrategicPlan extends Response {
 
     public StrategicPlan() {
     }
-
-    @Override
-    public Response response() {
-        return new StrategicPlan();
-    }
 }

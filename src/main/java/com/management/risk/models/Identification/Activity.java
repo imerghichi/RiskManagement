@@ -1,12 +1,14 @@
 package com.management.risk.models.Identification;
 
 
+import lombok.Data;
 import org.hibernate.mapping.Join;
 
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+@Data
 @Entity
 public class Activity {
     @Id

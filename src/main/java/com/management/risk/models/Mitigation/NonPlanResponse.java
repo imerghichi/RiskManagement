@@ -1,5 +1,7 @@
 package com.management.risk.models.Mitigation;
 
+import java.util.List;
+
 public class NonPlanResponse extends Response {
     private NonPlanResponseEnum nonPlanResponseEnum;
 
@@ -7,8 +9,7 @@ public class NonPlanResponse extends Response {
         this.nonPlanResponseEnum = nonPlanResponseEnum;
     }
 
-    @Override
-    public Response response() {
-        return new NonPlanResponse(this.nonPlanResponseEnum);
+    public NonPlanResponse() {
     }
+
 }

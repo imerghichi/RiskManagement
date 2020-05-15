@@ -10,8 +10,11 @@ public class ContingencyPlan extends Response{
         this.contingency_name = contingency_name;
     }
 
-    @Override
-    public Response response() {
-        return new ContingencyPlan(this.contingency_name);
+    public ContingencyPlan() {
+    }
+
+    public ContingencyPlan(String contingency_name, List<Trigger> triggers) {
+        this.contingency_name = contingency_name;
+        this.triggers = triggers;
     }
 }

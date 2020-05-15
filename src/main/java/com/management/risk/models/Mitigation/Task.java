@@ -1,15 +1,30 @@
 package com.management.risk.models.Mitigation;
 
+import lombok.Data;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Data
+@Entity
 public class Task {
-    private long id_task;
-    private String task;
-    private boolean done;
-    private Date planned_start_date;
-    private Date actual_start_date;
-    private Date planned_completion_date;
-    private Date actual_completion_date;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    protected long id_task;
+    protected String task;
+    protected boolean done;
+    protected Date planned_start_date;
+    protected Date actual_start_date;
+    protected Date planned_completion_date;
+    protected Date actual_completion_date;
+    @ManyToOne
+    protected Response response;
+    protected int level;
+    protected String condition;
+    protected Date due_date;
+
+    public Task() {
+    }
 
     public Task(String task) {
         this.task = task;

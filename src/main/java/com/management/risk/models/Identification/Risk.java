@@ -1,10 +1,12 @@
 package com.management.risk.models.Identification;
 
 import com.management.risk.models.Mitigation.Response;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
 
+@Data
 @Entity
 public class Risk {
     @Id
