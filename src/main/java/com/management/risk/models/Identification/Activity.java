@@ -14,8 +14,6 @@ public class Activity {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private long id_task_project;
-    private Date start_date;
-    private Date end_date;
     private int mean_duration;
     private int min_duration;
     private int max_duration;
@@ -29,4 +27,35 @@ public class Activity {
     @ManyToMany
     private List<Activity> succsesors;
 
+    public long getId_task_project() {
+        return id_task_project;
+    }
+
+    public int getMean_duration() {
+        return mean_duration;
+    }
+
+    public int getMin_duration() {
+        return min_duration;
+    }
+
+    public int getMax_duration() {
+        return max_duration;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public List<Risk> getRisks() {
+        return risks;
+    }
+
+    public List<Activity> getPredecesors() {
+        return predecesors;
+    }
+
+    public List<Activity> getSuccsesors() {
+        return succsesors;
+    }
 }

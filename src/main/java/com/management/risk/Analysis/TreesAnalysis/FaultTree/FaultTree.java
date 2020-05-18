@@ -1,4 +1,4 @@
-package com.management.risk.models.Analysis.TreesAnalysis.FaultTree;
+package com.management.risk.Analysis.TreesAnalysis.FaultTree;
 
 
 import com.management.risk.models.Identification.Risk;

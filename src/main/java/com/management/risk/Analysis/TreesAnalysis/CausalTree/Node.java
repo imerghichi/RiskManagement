@@ -1,4 +1,4 @@
-package com.management.risk.models.Analysis.TreesAnalysis.CausalTree;
+package com.management.risk.Analysis.TreesAnalysis.CausalTree;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
