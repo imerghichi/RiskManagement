@@ -20,7 +20,8 @@ public class Project {
     private List<TeamMember> teamMembers;
     @OneToMany
     private List<Activity> taskProjects;
-
+    @OneToOne
+    private Portfolio portfolio;
     public List<TeamMember> getTeamMembers() {
         return teamMembers;
     }

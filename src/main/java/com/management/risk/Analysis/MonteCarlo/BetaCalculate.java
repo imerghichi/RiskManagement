@@ -1,6 +1,5 @@
 package com.management.risk.Analysis.MonteCarlo;
 
-import com.management.risk.models.Identification.Activity;
 
 public class BetaCalculate {
 
