@@ -2,10 +2,13 @@ package com.management.risk.Analysis.MonteCarlo;
 
 
 
+import com.management.risk.models.Identification.Activity;
 import org.apache.commons.math3.distribution.*;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.management.risk.models.Identification.DistributionEnum.*;
 
 public class MonteCarlo {
 
@@ -14,7 +17,7 @@ public class MonteCarlo {
         private int repetitions;
 
         //activities
-        private List<List<Object>> dataActArray;
+        private List<Activity> dataActArray;
 
         private int[][] matrix;
 
@@ -43,16 +46,16 @@ public class MonteCarlo {
         private double[] totalDurations;
 
 
-        public MonteCarlo(int repet, List<List<Object>> actArray) {
+        public MonteCarlo(int repet, List<Activity> actArray) {
 
             repetitions = repet;
             dataActArray = actArray;
 
             n = dataActArray.size();
 
-            topologicalArray = new ArrayList<ArrayList<Integer>>();
+            topologicalArray = new ArrayList<>();
 
-            inNodesArray = new ArrayList<ArrayList<Integer>>();
+            inNodesArray = new ArrayList<>();
 
             inDegree = new int[n];
 
@@ -65,14 +68,15 @@ public class MonteCarlo {
                 for(int j=0; j<n; j++)
                     matrix[i][j] = 0;
 
-            int[] temp;
             for(int i=0; i<n; i++) {
-                if(((int[])dataActArray.get(i).get(2))[0] != -1) {
-                    temp = new int[((int[])dataActArray.get(i).get(2)).length];
-                    temp = (int[])dataActArray.get(i).get(2);
-                    for(int j=0; j<temp.length; j++) {
-                        matrix[temp[j]-1][i] = 1;
+                if(dataActArray.get(i).getPredecesors() != null){
+                    List<Activity> temp ;
+                    temp = dataActArray.get(i).getPredecesors();
+                    for (Activity activity:
+                         temp) {
+                        matrix[(int)activity.getId_task_project()][i] = 1 ;
                     }
+
                 }
             }
         }
@@ -93,7 +97,7 @@ public class MonteCarlo {
                 if(occurrences == n) {
                     occurrences = 0;
 
-                    topologicalArray.add(new ArrayList<Integer>());
+                    topologicalArray.add(new ArrayList<>());
                     topologicalArray.get(index_topologicalArray).add(j+1);
                     for(int i=0; i<n; i++) {
                         if(matrix[j][i] == 1)
@@ -138,18 +142,18 @@ public class MonteCarlo {
         }
 
 
-        private SimulationResults computeResults(double[] totalDurs) throws Exception {
+        private SimulationResults computeResults(double[] totalDurs) {
 
             double totMean = 0;
             double totVar = 0;
-            double variance = 0;
+            double variance ;
 
             SimulationResults result = new SimulationResults();
 
             result.setMaxDuration( computeMaxTotalDuration(totalDurs) );
             result.setCPN(cpnResult);
 
-            List<Double> duration = new ArrayList<Double>();
+            List<Double> duration = new ArrayList<>();
             for(int i=0; i<repetitions; i++) {
                 result.addDuration(totalDurs[i]);
                 totMean = totMean + totalDurs[i];
@@ -169,52 +173,43 @@ public class MonteCarlo {
 
         }
 
-        private void computeDurations() throws Exception {
+        private void computeDurations() {
 
             durations = new double[n];
 
             for(int i=0; i<n; i++) {
-
-                if(dataActArray.get(topologicalArray.get(i).get(0)-1).get(3) == "Uniform") {
-
-                    UniformRealDistribution uniform = new UniformRealDistribution(((int[])dataActArray.get(topologicalArray.get(i).get(0)-1).get(4))[0],
-                            ((int[])dataActArray.get(topologicalArray.get(i).get(0)-1).get(4))[1]);
+                if(dataActArray.get(i).getDistribution() == Uniform){
+                    UniformRealDistribution uniform = new UniformRealDistribution(dataActArray.get(i).getParametre1(), dataActArray.get(i).getParametre2());
                     durations[i] = uniform.sample();
                     if(durations[i]<0)
                         durations[i] = 0;
 
                 } else
-
-                if(dataActArray.get(topologicalArray.get(i).get(0)-1).get(3) == "Triangular") {
-                    TriangularDistribution triangular = new TriangularDistribution(
-                            ((int[])dataActArray.get(topologicalArray.get(i).get(0)-1).get(4))[0],
-                            ((int[])dataActArray.get(topologicalArray.get(i).get(0)-1).get(4))[2],
-                            ((int[])dataActArray.get(topologicalArray.get(i).get(0)-1).get(4))[1]);
+                if(dataActArray.get(i).getDistribution() == Triangular) {
+                    TriangularDistribution triangular = new TriangularDistribution(dataActArray.get(i).getParametre1(), dataActArray.get(i).getParametre2(), dataActArray.get(i).getParametre3());
                     durations[i] = triangular.sample();
                     if(durations[i]<0)
                         durations[i] = 0;
 
                 } else
 
-                if(dataActArray.get(topologicalArray.get(i).get(0)-1).get(3) == "Beta") {
-/*@todo
+                if(dataActArray.get(i).getDistribution() == Beta) {
+
                     durations[i] = calcBetaDuration(i);
-*/
+
                 } else
 
-                if(dataActArray.get(topologicalArray.get(i).get(0)-1).get(3) == "Gaussian") {
+                if(dataActArray.get(i).getDistribution() == Gaussian) {
 
-                    NormalDistribution normal = new NormalDistribution(((int[])dataActArray.get(topologicalArray.get(i).get(0)-1).get(4))[0],
-                            ((int[])dataActArray.get(topologicalArray.get(i).get(0)-1).get(4))[1]);
+                    NormalDistribution normal = new NormalDistribution(dataActArray.get(i).getParametre1(), dataActArray.get(i).getParametre2());
                     durations[i] = normal.sample();
                     if(durations[i]<0)
                         durations[i] = 0;
 
                 } else
 
-                if(dataActArray.get(topologicalArray.get(i).get(0)-1).get(3) == "Exponential") {
-
-                    ExponentialDistribution exponential = new ExponentialDistribution(((int[])dataActArray.get(topologicalArray.get(i).get(0)-1).get(4))[0]);
+                if(dataActArray.get(i).getDistribution() == Exponential) {
+                    ExponentialDistribution exponential = new ExponentialDistribution(dataActArray.get(i).getParametre1());
                     durations[i] = exponential.sample();
                     if(durations[i]<0)
                         durations[i] = 0;
@@ -223,19 +218,16 @@ public class MonteCarlo {
             }
 
         }
-/*@todo
         private double calcBetaDuration(int i){
 
-             BetaCalculate betaCalculator = new BetaCalculate(((int[]) dataActArray.get(topologicalArray.get(i).get(0) - 1).get(4))[0],
-                        ((int[]) dataActArray.get(topologicalArray.get(i).get(0) - 1).get(4))[1],
-                        ((int[]) dataActArray.get(topologicalArray.get(i).get(0) - 1).get(4))[2]);
+             BetaCalculate betaCalculator = new BetaCalculate(dataActArray.get(i).getParametre1(), dataActArray.get(i).getParametre2(), dataActArray.get(i).getParametre3());
 
                 BetaDistribution beta = new BetaDistribution(betaCalculator.getAlpha(),
                         betaCalculator.getBeta());
-                return betaCalculator.scaleValue(beta.random());
+                return betaCalculator.scaleValue(beta.sample());
             }
 
-*/
+
         private void makeInDegree() {
 
             for(int i=0; i<n; i++) {
@@ -261,20 +253,20 @@ public class MonteCarlo {
             int maxNumPrecedences = 0;
 
             for(int i=0; i<topologicalArray.size(); i++) {
-                if(((int[])dataActArray.get(topologicalArray.get(i).get(0)-1).get(2))[0] != -1) {
-                    inNodesArray.add(new ArrayList<Integer>());
-                    for(int k=0; k<((int[])dataActArray.get(topologicalArray.get(i).get(0)-1).get(2)).length; k++) {
-                        inNodesArray.get(i).add(((int[])dataActArray.get(topologicalArray.get(i).get(0)-1).get(2))[k]);
+                inNodesArray.add(new ArrayList<>());
+                if (dataActArray.get(i).getPredecesors() != null) {
+                    for (int k = 0; k < dataActArray.get(i).getPredecesors().size(); k++) {
+                        inNodesArray.get(i).add((int) dataActArray.get(i).getPredecesors().get(k).getId_task_project());
                     }
                 } else {
-                    inNodesArray.add(new ArrayList<Integer>());
                     inNodesArray.get(i).add(0);
                 }
             }
 
-            for(int i=0; i<inNodesArray.size(); i++) {
-                if(inNodesArray.get(i).size() > maxNumPrecedences)
-                    maxNumPrecedences = inNodesArray.get(i).size();
+            for (ArrayList<Integer> innode:
+                 inNodesArray) {
+                if(innode.size() > maxNumPrecedences)
+                    maxNumPrecedences = innode.size();
             }
 
             inNodes = new int[n][maxNumPrecedences];
@@ -302,11 +294,11 @@ public class MonteCarlo {
             int finalNode = 0;
             int occurrences = 0;
             int[] predSelect = new int[n];
-            double max = 0.0;
+            double max ;
             double maxending = 0.0;
             ending = new double[n];
             cpnCount = new int[n];
-            ArrayList<ArrayList<Object>> durFinalNodes = new ArrayList<ArrayList<Object>>();
+            ArrayList<ArrayList<Object>> durFinalNodes = new ArrayList<>();
 
             for(int i=0; i<n; i++) {
                 if(inDegree[i] > 0) {
@@ -331,7 +323,7 @@ public class MonteCarlo {
                     ending[topologicalArray.get(i).get(0)-1] = durations[i] + max;
 
                     if(outDegree[i] == 0) {
-                        durFinalNodes.add(new ArrayList<Object>());
+                        durFinalNodes.add(new ArrayList<>());
                         durFinalNodes.get(index_array).add(topologicalArray.get(i).get(0));
                         durFinalNodes.get(index_array).add(ending[topologicalArray.get(i).get(0)-1]);
                         index_array++;
@@ -347,11 +339,11 @@ public class MonteCarlo {
 
             }
             if(durFinalNodes.size() > 0) {
-                for(int z=0; z<durFinalNodes.size(); z++) {
-                    if((Double)durFinalNodes.get(z).get(1) == maxending)
-                        finalNode = (Integer)durFinalNodes.get(z).get(0);
+                for (ArrayList<Object> dufinal:
+                     durFinalNodes) {
+                    if ((Double) dufinal.get(1) == maxending)
+                        finalNode = (Integer)dufinal.get(0);
                 }
-
                 if(finalNode != 0)
                     cpnCount[finalNode-1]++;
             }
@@ -380,7 +372,7 @@ public class MonteCarlo {
         }
 
 
-        private double computeMaxTotalDuration(double[] totalDurs) throws Exception {
+        private double computeMaxTotalDuration(double[] totalDurs){
 
             double maxTotalEnding = 0;
 
@@ -399,7 +391,7 @@ public class MonteCarlo {
         }
 
 
-        public SimulationResults results() throws Exception {
+        public SimulationResults results() {
             totalDurations = new double[repetitions];
             return computeResults(totalDurations);
         }

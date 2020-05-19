@@ -7,55 +7,101 @@ import org.hibernate.mapping.Join;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @Data
 @Entity
 public class Activity {
+    private static AtomicInteger count = new AtomicInteger(0);
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
     private long id_task_project;
-    private int mean_duration;
-    private int min_duration;
-    private int max_duration;
+    private String description;
+    private int parametre1;
+    private int parametre2;
+    private int parametre3;
+    @Enumerated(EnumType.STRING)
+    private DistributionEnum distribution;
+
     @ManyToOne
     private Project project;
     @OneToMany
     private List<Risk> risks;
-  //  private AbstractRealDistribution distribution;
     @ManyToMany
     private List<Activity> predecesors;
-    @ManyToMany
-    private List<Activity> succsesors;
 
-    public long getId_task_project() {
-        return id_task_project;
+    public Activity() {
+        id_task_project = count.incrementAndGet();
     }
 
-    public int getMean_duration() {
-        return mean_duration;
+    public void setId_task_project(long id_task_project) {
+        this.id_task_project = id_task_project;
     }
 
-    public int getMin_duration() {
-        return min_duration;
+    public String getDescription() {
+        return description;
     }
 
-    public int getMax_duration() {
-        return max_duration;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getParametre1() {
+        return parametre1;
+    }
+
+    public void setParametre1(int parametre1) {
+        this.parametre1 = parametre1;
+    }
+
+    public int getParametre2() {
+        return parametre2;
+    }
+
+    public void setParametre2(int parametre2) {
+        this.parametre2 = parametre2;
+    }
+
+    public int getParametre3() {
+        return parametre3;
+    }
+
+    public void setParametre3(int parametre3) {
+        this.parametre3 = parametre3;
+    }
+
+    public DistributionEnum getDistribution() {
+        return distribution;
+    }
+
+    public void setDistribution(DistributionEnum distribution) {
+        this.distribution = distribution;
     }
 
     public Project getProject() {
         return project;
     }
 
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
     public List<Risk> getRisks() {
         return risks;
+    }
+
+    public void setRisks(List<Risk> risks) {
+        this.risks = risks;
     }
 
     public List<Activity> getPredecesors() {
         return predecesors;
     }
 
-    public List<Activity> getSuccsesors() {
-        return succsesors;
+    public void setPredecesors(List<Activity> predecesors) {
+        this.predecesors = predecesors;
+    }
+
+    public long getId_task_project() {
+        return id_task_project;
     }
 }
