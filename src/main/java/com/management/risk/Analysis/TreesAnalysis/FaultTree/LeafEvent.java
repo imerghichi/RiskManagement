@@ -1,11 +1,52 @@
 package com.management.risk.Analysis.TreesAnalysis.FaultTree;
 
+import com.management.risk.models.Identification.Risk;
+
+import javax.persistence.*;
+
+@Entity
 public class LeafEvent{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id_leafEvent;
     private String event_name;
+    @Enumerated(EnumType.STRING)
     private EventType type;
     private float probability;
+    @Enumerated(EnumType.STRING)
     private OperatorEnum operande;
+    @OneToOne
+    private LeafEvent right_event;
+    @OneToOne
+    private LeafEvent left_event;
 
+
+    public long getId_leafEvent() {
+        return id_leafEvent;
+    }
+
+    public void setId_leafEvent(long id_leafEvent) {
+        this.id_leafEvent = id_leafEvent;
+    }
+
+    public LeafEvent getRight_event() {
+        return right_event;
+    }
+
+    public void setRight_event(LeafEvent right_event) {
+        this.right_event = right_event;
+    }
+
+    public LeafEvent getLeft_event() {
+        return left_event;
+    }
+
+    public void setLeft_event(LeafEvent left_event) {
+        this.left_event = left_event;
+    }
+
+    public LeafEvent() {
+    }
 
     public LeafEvent(String event_name, EventType type, float probability) {
         this.event_name = event_name;

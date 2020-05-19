@@ -1,5 +1,6 @@
 package com.management.risk.models.Identification;
 
+import com.management.risk.Analysis.TreesAnalysis.FaultTree.LeafEvent;
 import com.management.risk.models.Mitigation.Response;
 import lombok.Data;
 
@@ -41,6 +42,8 @@ public class Risk {
     private boolean detected;
     @OneToOne
     private Response response;
+    @OneToOne
+    private LeafEvent leafEvent;
 
     public Risk(Activity taskProject) {
         this.taskProject = taskProject;

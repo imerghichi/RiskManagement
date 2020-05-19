@@ -5,36 +5,36 @@ import com.management.risk.models.Identification.Risk;
 
 public class FaultTree {
     private UsedMethod usedMethod;
-    private Node root;
+    private LeafEvent root;
     private Risk risk;
 
-    public FaultTree(UsedMethod usedMethod, Node root) {
+    public FaultTree(UsedMethod usedMethod, LeafEvent root) {
         this.usedMethod = usedMethod;
         this.root = root;
     }
 
 
     //calcul en utilisant la logique floue
-   public float assess(Node start, UsedMethod usedMethod) {
-        if(start.getRight() == null && start.getLeft() == null) return start.getExpression().getProbability();
+   public float assess(LeafEvent start, UsedMethod usedMethod) {
+        if(start.getRight_event() == null && start.getLeft_event() == null) return start.getProbability();
         float result;
        switch (usedMethod){
            case Zadeh:
-               switch (start.getExpression().getOperande()){
+               switch (start.getOperande()){
                    case AND:
-                       result = Math.min(start.getLeft().getExpression().getProbability(), start.getRight().getExpression().getProbability());
+                       result = Math.min(start.getLeft_event().getProbability(), start.getRight_event().getProbability());
                        return result;
                    case OR:
-                       result = Math.max(start.getLeft().getExpression().getProbability(), start.getRight().getExpression().getProbability());
+                       result = Math.max(start.getLeft_event().getProbability(), start.getRight_event().getProbability());
                        return result;
                }
            case Prod_probor:
-               switch (start.getExpression().getOperande()){
+               switch (start.getOperande()){
                    case AND:
-                       result = start.getLeft().getExpression().getProbability()*start.getRight().getExpression().getProbability();
+                       result = start.getLeft_event().getProbability()*start.getRight_event().getProbability();
                        return result;
                    case OR:
-                       result =start.getLeft().getExpression().getProbability()+start.getRight().getExpression().getProbability() - start.getLeft().getExpression().getProbability()*start.getRight().getExpression().getProbability();
+                       result =start.getLeft_event().getProbability()+start.getRight_event().getProbability() - start.getLeft_event().getProbability()*start.getRight_event().getProbability();
                        return result;
                }
            default:return -1;
