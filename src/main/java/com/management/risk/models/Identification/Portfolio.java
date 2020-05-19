@@ -1,24 +1,27 @@
 package com.management.risk.models.Identification;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
 public class Portfolio {
     @Id
+    @GeneratedValue (strategy =  GenerationType.AUTO)
     private long id_portfolio;
     private String description;
     private double mean;
     private double standardDeviation;
     private BigDecimal initialInvestment;
-    private double median;
-    private double tenPercentBestCase;
-    private double tenPercentWorstCase;
     private double inflationRate;
     @OneToOne
     private Project project;
+    @Transient
+    private double median;
+    @Transient
+    private double tenPercentBestCase;
+    @Transient
+    private double tenPercentWorstCase;
+
 
     public Portfolio() {
     }
