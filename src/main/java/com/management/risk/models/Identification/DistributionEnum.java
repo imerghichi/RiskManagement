@@ -5,5 +5,13 @@ public enum DistributionEnum {
     Triangular,
     Gaussian,
     Exponential,
-    Beta
+    Beta,
+    //for rejection sampler
+    Gamma,
+    Chi_square,
+  //  Half_normal,
+    Log_normal,
+    Student,
+    Laplace,
+    Gumbel,
 }
