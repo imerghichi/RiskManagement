@@ -16,7 +16,6 @@ public class Project {
     private long id_project;
     private String project_name;
     @OneToMany
-    @JoinColumn()
     private List<TeamMember> teamMembers;
     @OneToMany
     private List<Activity> taskProjects;

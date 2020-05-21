@@ -40,6 +40,8 @@ public class Risk {
     @Enumerated(EnumType.STRING)
     private Visibility visibility;
     private boolean detected;
+    @Enumerated
+    private SEITaxonomy taxonomy;
     @OneToOne
     private Response response;
     @OneToOne
@@ -217,6 +219,38 @@ public class Risk {
         this.response = response;
     }
 
+    public Activity getTaskProject() {
+        return taskProject;
+    }
+
+    public void setTaskProject(Activity taskProject) {
+        this.taskProject = taskProject;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public SEITaxonomy getTaxonomy() {
+        return taxonomy;
+    }
+
+    public void setTaxonomy(SEITaxonomy taxonomy) {
+        this.taxonomy = taxonomy;
+    }
+
+    public LeafEvent getLeafEvent() {
+        return leafEvent;
+    }
+
+    public void setLeafEvent(LeafEvent leafEvent) {
+        this.leafEvent = leafEvent;
+    }
+
     public boolean isExternal(){
         switch (this.category){
             case customer_risk:
@@ -229,4 +263,5 @@ public class Risk {
                 return false;
         }
     }
+
 }

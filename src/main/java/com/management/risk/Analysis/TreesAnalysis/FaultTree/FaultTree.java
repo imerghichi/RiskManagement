@@ -6,7 +6,6 @@ import com.management.risk.models.Identification.Risk;
 public class FaultTree {
     private UsedMethod usedMethod;
     private LeafEvent root;
-    private Risk risk;
 
     public FaultTree(UsedMethod usedMethod, LeafEvent root) {
         this.usedMethod = usedMethod;
@@ -45,13 +44,6 @@ public class FaultTree {
         return assess(this.root, this.usedMethod);
     }
 
-    public Risk getRisk() {
-        return risk;
-    }
-
-    public void setRisk(Risk risk) {
-        this.risk = risk;
-    }
 }
 
 
