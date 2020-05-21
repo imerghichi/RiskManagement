@@ -16,6 +16,7 @@ public class Activity {
     @Id
     private long id_task_project;
     private String description;
+    //parametres de distribution
     private int parametre1;
     private int parametre2;
     private int parametre3;
