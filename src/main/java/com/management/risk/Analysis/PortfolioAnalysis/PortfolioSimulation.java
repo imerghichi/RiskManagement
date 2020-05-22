@@ -5,6 +5,8 @@ import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 //with monte carlo
 public class PortfolioSimulation {
@@ -66,8 +68,8 @@ public class PortfolioSimulation {
         return this.getNormalDistribution().sample();
     }
 
-    public void simulate(){
-
+    public List<Double> simulate(){
+        List<Double> list = new ArrayList<>();
         int simulation = 0;
 
         while (simulation < number_of_simulations){
@@ -81,8 +83,13 @@ public class PortfolioSimulation {
             this.getDescriptiveStatistics().addValue(totalInvest.doubleValue());
             simulation++;
         }
+        list.add(this.descriptiveStatistics.getPercentile(90));
+        list.add(this.descriptiveStatistics.getPercentile(10));
+        list.add(this.descriptiveStatistics.getPercentile(50));
         this.portfolio.setTenPercentBestCase(this.descriptiveStatistics.getPercentile(90));
         this.portfolio.setTenPercentWorstCase(this.descriptiveStatistics.getPercentile(10));
         this.portfolio.setMedian(this.getDescriptiveStatistics().getPercentile(50));
+        return list;
     }
+
 }

@@ -13,6 +13,8 @@ public class Event {
     private String description_event;
     @OneToMany
     private List<Event> causes;
+  //  @ManyToOne
+//    private Event consequence;
 
     public Event() {
     }
@@ -48,4 +50,6 @@ public class Event {
     public void setCauses(List<Event> causes) {
         this.causes = causes;
     }
+
+
 }

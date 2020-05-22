@@ -2,10 +2,7 @@ package com.management.risk.models.Identification;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -13,5 +10,22 @@ public class TeamMember {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_team_member;
+    @ManyToOne
+    private Project project;
 
+    public long getId_team_member() {
+        return id_team_member;
+    }
+
+    public void setId_team_member(long id_team_member) {
+        this.id_team_member = id_team_member;
+    }
+
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
 }

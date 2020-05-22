@@ -1,40 +1,43 @@
 package com.management.risk.services.Implementation;
 
 import com.management.risk.models.Identification.Project;
+import com.management.risk.repositories.ProjectRepo;
 import com.management.risk.services.Interfaces.ProjectServiceI;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProjectService implements ProjectServiceI {
-    //@todo imple
+    @Autowired
+    private ProjectRepo projectRepo;
+
+
     @Override
-    public List<Project> getAllProjects() {
-        return null;
+    public List<Project> findAll() {
+        return projectRepo.findAll();
     }
 
     @Override
-    public Optional<Project> getProjectbyId(long id) {
-        return Optional.empty();
+    public List<Project> findAll(Sort sort) {
+        return projectRepo.findAll();
     }
 
     @Override
-    public void updateproject(Project project) {
-
+    public Optional<Project> findById(long id) {
+        return projectRepo.findById(id);
     }
 
     @Override
-    public void deleteprojectbyid(long id) {
-
+    public void deleteById(long id) {
+        projectRepo.deleteById(id);
     }
 
     @Override
-    public void deleteproject(Project project) {
-
-    }
-
-    @Override
-    public void saveproject(Project project) {
-
+    public Project save(Project project) {
+        return projectRepo.save(project);
     }
 }

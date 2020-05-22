@@ -7,24 +7,39 @@ import java.util.List;
 
 public class Taxonomy {
 
+    List<Risk> risks;
+    SEITaxonomy seiTaxonomy;
+    FirstLevelTaxonomy firstLevelTaxonomy;
 
-    double frequency(List<Risk> risks,SEITaxonomy seiTaxonomy){
-        int sum = 0;
-        for (Risk risk :
-                risks) {
-            if(risk.getTaxonomy().toString() == seiTaxonomy.toString())
-                sum++;
-        }
-        return sum/risks.size();
+    public Taxonomy(List<Risk> risks, SEITaxonomy seiTaxonomy) {
+        this.risks = risks;
+        this.firstLevelTaxonomy = seiTaxonomy.getFirst_level_taxonomy();
+        this.seiTaxonomy = seiTaxonomy;
     }
-    double frequency(List<Risk> risks, FirstLevelTaxonomy firstLevelTaxonomy){
+
+    public Taxonomy(List<Risk> risks, FirstLevelTaxonomy firstLevelTaxonomy) {
+        this.risks = risks;
+        this.firstLevelTaxonomy = firstLevelTaxonomy;
+        this.seiTaxonomy = null;
+    }
+
+    public double frequency() {
         int sum = 0;
-        for (Risk risk :
-                risks) {
-            if (risk.getTaxonomy().getFirst_level_taxonomy().toString() == firstLevelTaxonomy.toString())
-                sum++;
+        if (this.seiTaxonomy == null) {
+            for (Risk risk :
+                    risks) {
+                if (risk.getTaxonomy().getFirst_level_taxonomy().toString().equals(firstLevelTaxonomy.toString()))
+                    sum++;
+            }
+            return sum / risks.size();
+        } else {
+            for (Risk risk :
+                    risks) {
+                if (risk.getTaxonomy().toString().equals(seiTaxonomy.toString()))
+                    sum++;
+            }
+            return sum / risks.size();
         }
-        return sum/risks.size();
     }
 }
 

@@ -14,7 +14,7 @@ public class FaultTree {
 
 
     //calcul en utilisant la logique floue
-   public float assess(LeafEvent start, UsedMethod usedMethod) {
+   public double assess(LeafEvent start, UsedMethod usedMethod) {
         if(start.getRight_event() == null && start.getLeft_event() == null) return start.getProbability();
         float result;
        switch (usedMethod){
@@ -40,7 +40,7 @@ public class FaultTree {
        }
     }
 
-    public float assess() {
+    public double assess() {
         return assess(this.root, this.usedMethod);
     }
 

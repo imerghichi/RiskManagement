@@ -25,6 +25,23 @@ public class RejectionSampler {
         }
         return null;
     }
+
+    public void setDistribution(DistributionEnum distribution) {
+        this.distribution = distribution;
+    }
+
+    public void setThreshold(double threshold) {
+        this.threshold = threshold;
+    }
+
+    public void setParam1(double param1) {
+        this.param1 = param1;
+    }
+
+    public void setParam2(double param2) {
+        this.param2 = param2;
+    }
+
     public double simulate(){
         UniformRealDistribution distribution_uniform = new UniformRealDistribution(0,1);
         double x;
