@@ -5,9 +5,11 @@ import com.management.risk.models.Identification.FirstLevelTaxonomy;
 import com.management.risk.models.Identification.Risk;
 import com.management.risk.models.Identification.SEITaxonomy;
 import com.management.risk.services.Interfaces.TaxonomyServiceI;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class TaxonomyService implements TaxonomyServiceI {
     @Override
     public double frequency(SEITaxonomy seiTaxonomy, List<Risk> risks) {

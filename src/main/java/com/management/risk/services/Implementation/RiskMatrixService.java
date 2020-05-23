@@ -25,7 +25,13 @@ public class RiskMatrixService implements RiskMatrixServiceI {
 
     @Override
     public List<ArrayList<ArrayList<Risk>>> getMatrix(ArrayList<Risk> risks) {
-        RiskMatrix riskMatrix = new RiskMatrix(risks);
+        return getMatrix(risks);
+    }
+
+    public List<ArrayList<ArrayList<Risk>>> getMatrix(List<Risk> risks) {
+        RiskMatrix riskMatrix = new RiskMatrix((ArrayList<Risk>) risks);
         return riskMatrix.establish_matrix_risk();
     }
+
+
 }
