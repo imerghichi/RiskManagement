@@ -5,6 +5,9 @@ import com.management.risk.models.Identification.Portfolio;
 import com.management.risk.services.Interfaces.PortfolioSimulationServiceI;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class PortfolioSimulationService implements PortfolioSimulationServiceI {
     @Override
@@ -23,4 +26,5 @@ public class PortfolioSimulationService implements PortfolioSimulationServiceI {
         PortfolioSimulation portfolioSimulation =new PortfolioSimulation(num_years, num_sim, portfolio);
         return portfolioSimulation.simulate().get(2);
     }
+
 }

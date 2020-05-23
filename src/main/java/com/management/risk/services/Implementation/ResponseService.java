@@ -15,7 +15,6 @@ public class ResponseService implements ResponseServiceI {
     @Autowired
     private ResponseRepo responseRepo;
 
-
     @Override
     public List<Response> findAll() {
         return responseRepo.findAll();

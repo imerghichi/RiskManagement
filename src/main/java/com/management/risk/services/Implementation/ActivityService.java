@@ -17,7 +17,6 @@ public class ActivityService implements ActivityServiceI {
     @Autowired
     private ActivityRepo activityRepo;
 
-
     @Override
     public List<Activity> findAll() {
         return activityRepo.findAll();
