@@ -46,6 +46,9 @@ public class Risk {
     private Response response;
     @OneToOne
     private LeafEvent leafEvent;
+    @ManyToOne
+    private Project project;
+    //todo service..
 
     public Risk(Activity taskProject) {
         this.taskProject = taskProject;
@@ -252,16 +255,15 @@ public class Risk {
     }
 
     public boolean isExternal(){
-        switch (this.category){
-            case customer_risk:
+        switch (this.origin_risk){
+            case external:
                 return true;
-            case competitor_risk:
+            case vendor:
                 return true;
-            case society_risk:
-                return true;
-            default:
+            case internal:
                 return false;
         }
+        return false;
     }
 
 }
