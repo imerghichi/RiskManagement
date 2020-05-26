@@ -15,6 +15,7 @@ public class Activity {
     private static AtomicInteger count = new AtomicInteger(0);
     @Id
     private long id_task_project;
+    private String task_name;
     private String description;
     //parametres de distribution
     private int parametre1;
