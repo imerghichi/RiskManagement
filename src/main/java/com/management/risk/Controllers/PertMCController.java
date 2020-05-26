@@ -15,7 +15,7 @@ import java.util.List;
 public class PertMCController {
     @Autowired
     private PertMCService pertMCService;
-    @GetMapping
+    @GetMapping(value = "/MC/")
     @ResponseBody
     public SimulationResults getPertMC(@RequestBody List<Activity> activities) throws Exception {
             return pertMCService.pertMC(activities);

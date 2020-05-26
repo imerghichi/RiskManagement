@@ -8,32 +8,32 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController("/faultTree")
+@RestController(value = "/faultTree")
 public class FaultTreeController {
     @Autowired
     private FaultTreeService faultTreeService;
 
-    @GetMapping
+    @GetMapping(value = "/allft/")
     @ResponseBody
-    public List<LeafEvent> getAll(){
+    public List<LeafEvent> getAllft(){
         return faultTreeService.findAll();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/ft/{id}")
     @ResponseBody
-    public Optional<LeafEvent> getById(@PathVariable long id){
+    public Optional<LeafEvent> getByftId(@PathVariable long id){
         return faultTreeService.findById(id);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/deleteft/{id}")
     @ResponseBody
-    public void deleteById(@PathVariable long id){
+    public void deleteByftId(@PathVariable long id){
         faultTreeService.deleteById(id);
     }
 
-    @PostMapping
+    @PostMapping(value = "/postft/")
     @ResponseBody
-    public LeafEvent save(@RequestBody LeafEvent leafEvent){
+    public LeafEvent saveft(@RequestBody LeafEvent leafEvent){
         return faultTreeService.save(leafEvent);
     }
 

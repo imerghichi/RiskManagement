@@ -17,30 +17,30 @@ public class PortfolioController {
     private PortfolioService portfolioService;
     private ProjectService projectService;
 
-    @GetMapping
+    @GetMapping(value = "/allportfolio")
     @ResponseBody
     public List<Portfolio> getall(){
         return portfolioService.findAll();
     }
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/portfolio/{id}")
     @ResponseBody
     public Optional<Portfolio> getbyId(@PathVariable long id){
         return portfolioService.findById(id);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/deleteportfolio/{id}")
     @ResponseBody
     public void deleteById(@PathVariable long id){
         portfolioService.deleteById(id);
     }
 
-    @PostMapping
+    @PostMapping(value = "/postportfolio/")
     @ResponseBody
     public Portfolio save (@RequestBody Portfolio portfolio){
         return portfolioService.save(portfolio);
     }
 
-    @GetMapping("/project/{id}")
+    @GetMapping("/project_portfolio/{id}")
     @ResponseBody
     public List<Portfolio> getByProject(@PathVariable long id) throws Exception {
         Project project = projectService.findById(id).orElseThrow(Exception::new);

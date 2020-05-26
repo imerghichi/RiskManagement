@@ -14,22 +14,22 @@ public class TeamMemberController {
     @Autowired
     public TeamMemberService teamMemberService;
 
-    @GetMapping
+    @GetMapping(value = "/allTM")
     @ResponseBody
     public List<TeamMember> getAll(){
         return teamMemberService.findAll();
     }
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/tm/{id}")
     @ResponseBody
     public Optional<TeamMember> getById(@PathVariable long id){
         return teamMemberService.findById(id);
     }
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/deleteTM/{id}")
     @ResponseBody
     public void deleteById(@PathVariable long id){
         teamMemberService.deleteById(id);
     }
-    @PostMapping
+    @PostMapping(value = "/postTM/")
     @ResponseBody
     public TeamMember save(@RequestBody TeamMember teamMember){
         return teamMemberService.save(teamMember);

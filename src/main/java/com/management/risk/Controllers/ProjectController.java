@@ -13,25 +13,25 @@ public class ProjectController {
     @Autowired
     ProjectService projectService;
 
-    @GetMapping
+    @GetMapping(value = "/allproject/")
     @ResponseBody
     public List<Project> getAll(){
         return projectService.findAll();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/project/{id}")
     @ResponseBody
     public Optional<Project> getById(@PathVariable long id){
         return projectService.findById(id);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/deleteproject/{id}")
     @ResponseBody
     public void deleteById(@PathVariable long id){
         projectService.deleteById(id);
     }
 
-    @PostMapping
+    @PostMapping(value = "/postproject/")
     @ResponseBody
     public Project save(@RequestBody Project project){
         return projectService.save(project);

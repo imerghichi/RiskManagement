@@ -22,32 +22,32 @@ public class RiskController {
     private ProjectService projectService;
     private TeamMemberService teamMemberService;
 
-    @GetMapping
+    @GetMapping(value = "/allrisks/")
     @ResponseBody
     public List<Risk> getAll(){
         return riskService.findAll();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/risk/{id}")
     @ResponseBody
     public Optional<Risk> getById(@PathVariable long id){
         return riskService.findById(id);
     }
 
-    @GetMapping("/activity/{id}")
+    @GetMapping("/activity_risk/{id}")
     @ResponseBody
     public List<Risk> getByActivity(@PathVariable long id) throws Exception {
         Activity activity = activityService.findById(id).orElseThrow(Exception::new);
         return riskService.findByActivity(activity);
     }
 
-    @GetMapping(value = "/project/{id}")
+    @GetMapping(value = "/project_risk/{id}")
     @ResponseBody
     public List<Risk> getByProject (@PathVariable long id) throws Exception {
         Project project = projectService.findById(id).orElseThrow(Exception::new);
         return riskService.findByProject(project);
     }
-    @GetMapping(value = "/team_member/{id}")
+    @GetMapping(value = "/team_member_risk/{id}")
     @ResponseBody
     public List<Risk> getByTeam_mem (@PathVariable long id) throws Exception {
         TeamMember teamMember = teamMemberService.findById(id).orElseThrow(Exception::new);
@@ -55,13 +55,13 @@ public class RiskController {
     }
 
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/deleterisk/{id}")
     @ResponseBody
     public void deleteById(@PathVariable long id){
         riskService.deleteById(id);
     }
 
-    @PostMapping
+    @PostMapping(value = "/postrisk")
     @ResponseBody
     public Risk save(@RequestBody Risk risk){
         return riskService.save(risk);

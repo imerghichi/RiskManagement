@@ -8,25 +8,26 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController("/activities")
+@RestController(value = "/activitycontrol")
 public class ActivityController {
     @Autowired
     private ActivityService activityService;
 
-    @GetMapping
+    @GetMapping(value = "/allac/")
     @ResponseBody
-    public List<Activity> getall(){
+    public List<Activity> getallact(){
         return activityService.findAll();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/act/{id}")
     @ResponseBody
     public Optional<Activity> getActivityById(@PathVariable long id){
         return activityService.findById(id);
     }
-    @DeleteMapping(value = "/{id}")
+
+    @DeleteMapping(value = "/deleteact/{id}")
     @ResponseBody
-    public void deleteById(@PathVariable long id){
+    public void deleteByIdact(@PathVariable long id){
         activityService.deleteById(id);
     }
 

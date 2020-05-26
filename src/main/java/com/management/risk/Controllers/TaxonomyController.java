@@ -17,12 +17,12 @@ public class TaxonomyController {
     @Autowired
     private TaxonomyService taxonomyService;
 
-    @GetMapping
+    @GetMapping(value = "/bysei/")
     @ResponseBody
     public double frequency (@PathVariable SEITaxonomy seiTaxonomy, @PathVariable List<Risk> risks){
         return taxonomyService.frequency(seiTaxonomy, risks);
     }
-    @GetMapping
+    @GetMapping(value = "/byfrstlvl/")
     @ResponseBody
     public double frequency (@PathVariable FirstLevelTaxonomy firstLevelTaxonomy, @PathVariable List<Risk> risks){
         return taxonomyService.frequency(firstLevelTaxonomy, risks);

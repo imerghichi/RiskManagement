@@ -6,7 +6,7 @@ import com.management.risk.services.Implementation.AcceptanceRejectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("/rejection")
+@RestController(value = "/rejection")
 public class AcceptanceRejectionController {
     @Autowired
     private AcceptanceRejectionService acceptanceRejectionService;

@@ -13,41 +13,41 @@ public class ResponseController {
     @Autowired
     private ResponseService responseService;
 
-    @GetMapping
+    @GetMapping(value = "/allresponse/")
     @ResponseBody
     public List<Response> getAll(){
         return responseService.findAll();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/response/{id}")
     @ResponseBody
     public Optional<Response> getById(@PathVariable long id){
         return responseService.findById(id);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/deleteresponse/{id}")
     @ResponseBody
     public void deleteById(@PathVariable long id){
         responseService.deleteById(id);
     }
 
-    @PostMapping
+    @PostMapping(value = "/postCP/")
     @ResponseBody
     public ContingencyPlan save(@RequestBody ContingencyPlan contingencyPlan){
         return responseService.save(contingencyPlan);
     }
-    @PostMapping
+    @PostMapping(value = "/postMP/")
     @ResponseBody
     public MitigationPlan save(@RequestBody MitigationPlan mitigationPlan){
         return responseService.save(mitigationPlan);
     }
 
-    @PostMapping
+    @PostMapping(value = "/postNPR/")
     @ResponseBody
     public NonPlanResponse save(@RequestBody NonPlanResponse nonPlanResponse){
         return responseService.save(nonPlanResponse);
     }
-    @PostMapping
+    @PostMapping(value = "/postSP")
     @ResponseBody
     public StrategicPlan save(@RequestBody StrategicPlan strategicPlan){
         return responseService.save(strategicPlan);

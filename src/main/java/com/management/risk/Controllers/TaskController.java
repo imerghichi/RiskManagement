@@ -17,37 +17,37 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
-    @GetMapping
+    @GetMapping(value = "/alltask/")
     @ResponseBody
     public List<Task> getAll(){
         return taskService.findAll();
     }
 
-    @GetMapping(value = "/{id}")
+    @GetMapping(value = "/task/{id}")
     @ResponseBody
     public Optional<Task> getById(@PathVariable long id){
         return taskService.findById(id);
     }
 
-    @DeleteMapping(value = "/{id}")
+    @DeleteMapping(value = "/deleteTask/{id}")
     @ResponseBody
     public void deleteById(@PathVariable long id){
         taskService.deleteById(id);
     }
 
-    @PostMapping
+    @PostMapping(value = "/posttask/")
     @ResponseBody
     public Task save(@RequestBody Task task){
         return taskService.save(task);
     }
 
-    @PostMapping
+    @PostMapping(value = "/postMilstone/")
     @ResponseBody
     public Milstone save(@RequestBody Milstone task){
         return taskService.save(task);
     }
 
-    @PostMapping
+    @PostMapping(value = "/postTrigger/")
     @ResponseBody
     public Trigger save(@RequestBody Trigger task){
         return taskService.save(task);

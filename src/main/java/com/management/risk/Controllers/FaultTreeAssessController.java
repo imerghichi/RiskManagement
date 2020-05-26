@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/asessFaultTree")
+@RestController(value = "/asessFaultTree")
 public class FaultTreeAssessController {
     @Autowired
     private FaultTreeAssessImpl faultTreeAssess;

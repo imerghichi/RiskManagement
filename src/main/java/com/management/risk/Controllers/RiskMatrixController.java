@@ -17,20 +17,20 @@ public class RiskMatrixController {
     private RiskMatrixService riskMatrixService;
 
 
-    @GetMapping
+    @GetMapping(value = "/3args/")
     @ResponseBody
     public List<ArrayList<ArrayList<Risk>>> getmatrix(@RequestBody ArrayList<Risk> risks,@RequestBody int probability_div, @RequestBody int capacity){
         return riskMatrixService.getMatrix(probability_div, risks,capacity);
     }
 
-    @GetMapping
+    @GetMapping(value = "/2arg/")
     @ResponseBody
-    public List<ArrayList<ArrayList<Risk>>> getmatrix(@RequestBody ArrayList<Risk> risks,@RequestBody int probability_div){
+    public List<ArrayList<ArrayList<Risk>>> getmatrix1(@RequestBody ArrayList<Risk> risks,@RequestBody int probability_div){
         return riskMatrixService.getMatrix(probability_div, risks);
     }
-    @GetMapping
+    @GetMapping(value = "/1arg")
     @ResponseBody
-    public List<ArrayList<ArrayList<Risk>>> getmatrix(@RequestBody ArrayList<Risk> risks){
+    public List<ArrayList<ArrayList<Risk>>> getmatrix2(@RequestBody ArrayList<Risk> risks){
         return riskMatrixService.getMatrix(risks);
     }
 }
