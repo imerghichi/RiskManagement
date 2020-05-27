@@ -1,10 +1,9 @@
 package com.management.risk.Analysis.MonteCarlo;
 
 
-import com.management.risk.models.Identification.Activity;
+import com.management.risk.Identification.Activity;
 import mcsimulations.simulation.MCSimulation;
 import mcsimulations.simulation.SimulationResults;
-import org.hibernate.sql.MckoiCaseFragment;
 
 import java.util.ArrayList;
 import java.util.List;

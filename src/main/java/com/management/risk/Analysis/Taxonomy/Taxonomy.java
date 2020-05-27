@@ -1,8 +1,7 @@
 package com.management.risk.Analysis.Taxonomy;
 
-import com.management.risk.models.Identification.*;
+import com.management.risk.Identification.*;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Taxonomy {

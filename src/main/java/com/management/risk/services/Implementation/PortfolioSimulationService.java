@@ -1,12 +1,9 @@
 package com.management.risk.services.Implementation;
 
 import com.management.risk.Analysis.PortfolioAnalysis.PortfolioSimulation;
-import com.management.risk.models.Identification.Portfolio;
+import com.management.risk.Identification.Portfolio;
 import com.management.risk.services.Interfaces.PortfolioSimulationServiceI;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class PortfolioSimulationService implements PortfolioSimulationServiceI {

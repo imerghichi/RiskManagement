@@ -1,7 +1,5 @@
 package com.management.risk.Analysis.TreesAnalysis.FaultTree;
 
-import com.management.risk.models.Identification.Risk;
-
 import javax.persistence.*;
 
 @Entity

@@ -1,10 +1,9 @@
 package com.management.risk.Controllers;
 
 
-import com.management.risk.models.Identification.Risk;
-import com.management.risk.models.Mitigation.Milstone;
-import com.management.risk.models.Mitigation.Task;
-import com.management.risk.models.Mitigation.Trigger;
+import com.management.risk.Mitigation.Milstone;
+import com.management.risk.Mitigation.Task;
+import com.management.risk.Mitigation.Trigger;
 import com.management.risk.services.Implementation.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

@@ -1,7 +1,7 @@
 package com.management.risk.services.Implementation;
 
 
-import com.management.risk.models.Identification.*;
+import com.management.risk.Identification.*;
 import com.management.risk.repositories.Riskrepo;
 import com.management.risk.services.Interfaces.RiskServiceI;
 import org.springframework.beans.factory.annotation.Autowired;

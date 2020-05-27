@@ -1,4 +1,4 @@
-package com.management.risk.models.Identification;
+package com.management.risk.Identification;
 
 import javax.persistence.*;
 import java.math.BigDecimal;

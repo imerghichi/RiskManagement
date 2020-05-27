@@ -1,8 +1,6 @@
 package com.management.risk.services.Implementation;
 
-import com.management.risk.models.Identification.Origin;
-import com.management.risk.models.Identification.OwnerLevel;
-import com.management.risk.models.Identification.Risk;
+import com.management.risk.Identification.Risk;
 import com.management.risk.services.Interfaces.OwnerLevelDistributionServiceI;
 import org.springframework.stereotype.Service;
 

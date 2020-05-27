@@ -1,4 +1,4 @@
-package com.management.risk.models.Mitigation;
+package com.management.risk.Mitigation;
 
 public enum NonPlanResponseEnum {
     avoid,

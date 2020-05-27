@@ -1,6 +1,6 @@
 package com.management.risk.Controllers;
 
-import com.management.risk.models.Identification.Risk;
+import com.management.risk.Identification.Risk;
 import com.management.risk.services.Implementation.OwnerLevelDistributionService;
 import com.management.risk.services.Implementation.RiskService;
 import org.springframework.beans.factory.annotation.Autowired;

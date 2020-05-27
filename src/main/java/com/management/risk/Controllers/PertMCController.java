@@ -1,6 +1,6 @@
 package com.management.risk.Controllers;
 
-import com.management.risk.models.Identification.Activity;
+import com.management.risk.Identification.Activity;
 import com.management.risk.services.Implementation.PertMCService;
 import mcsimulations.simulation.SimulationResults;
 import org.springframework.beans.factory.annotation.Autowired;

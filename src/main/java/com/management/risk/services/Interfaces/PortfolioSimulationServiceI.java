@@ -1,8 +1,6 @@
 package com.management.risk.services.Interfaces;
 
-import com.management.risk.models.Identification.Portfolio;
-
-import java.util.List;
+import com.management.risk.Identification.Portfolio;
 
 public interface PortfolioSimulationServiceI {
     double getTenPercentBestCase (int num_years, int num_sim, Portfolio portfolio);

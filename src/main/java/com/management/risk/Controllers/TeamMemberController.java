@@ -1,7 +1,6 @@
 package com.management.risk.Controllers;
 
-import com.management.risk.models.Identification.Risk;
-import com.management.risk.models.Identification.TeamMember;
+import com.management.risk.Identification.TeamMember;
 import com.management.risk.services.Implementation.TeamMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

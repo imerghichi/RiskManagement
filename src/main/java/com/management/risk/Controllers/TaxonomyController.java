@@ -1,8 +1,8 @@
 package com.management.risk.Controllers;
 
-import com.management.risk.models.Identification.FirstLevelTaxonomy;
-import com.management.risk.models.Identification.Risk;
-import com.management.risk.models.Identification.SEITaxonomy;
+import com.management.risk.Identification.FirstLevelTaxonomy;
+import com.management.risk.Identification.Risk;
+import com.management.risk.Identification.SEITaxonomy;
 import com.management.risk.services.Implementation.TaxonomyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

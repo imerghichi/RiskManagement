@@ -1,8 +1,8 @@
 package com.management.risk.services.Implementation;
 
-import com.management.risk.models.Mitigation.Milstone;
-import com.management.risk.models.Mitigation.Task;
-import com.management.risk.models.Mitigation.Trigger;
+import com.management.risk.Mitigation.Milstone;
+import com.management.risk.Mitigation.Task;
+import com.management.risk.Mitigation.Trigger;
 import com.management.risk.repositories.TaskRepo;
 import com.management.risk.services.Interfaces.TaskServiceI;
 import org.springframework.beans.factory.annotation.Autowired;

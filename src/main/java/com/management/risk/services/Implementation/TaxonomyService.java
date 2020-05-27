@@ -1,9 +1,9 @@
 package com.management.risk.services.Implementation;
 
 import com.management.risk.Analysis.Taxonomy.Taxonomy;
-import com.management.risk.models.Identification.FirstLevelTaxonomy;
-import com.management.risk.models.Identification.Risk;
-import com.management.risk.models.Identification.SEITaxonomy;
+import com.management.risk.Identification.FirstLevelTaxonomy;
+import com.management.risk.Identification.Risk;
+import com.management.risk.Identification.SEITaxonomy;
 import com.management.risk.services.Interfaces.TaxonomyServiceI;
 import org.springframework.stereotype.Service;
 

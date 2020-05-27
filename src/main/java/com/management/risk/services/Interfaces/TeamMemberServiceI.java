@@ -1,8 +1,8 @@
 package com.management.risk.services.Interfaces;
 
 
-import com.management.risk.models.Identification.Project;
-import com.management.risk.models.Identification.TeamMember;
+import com.management.risk.Identification.Project;
+import com.management.risk.Identification.TeamMember;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;

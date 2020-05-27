@@ -1,8 +1,8 @@
 package com.management.risk.services.Interfaces;
 
-import com.management.risk.models.Mitigation.Milstone;
-import com.management.risk.models.Mitigation.Task;
-import com.management.risk.models.Mitigation.Trigger;
+import com.management.risk.Mitigation.Milstone;
+import com.management.risk.Mitigation.Task;
+import com.management.risk.Mitigation.Trigger;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;

@@ -1,11 +1,10 @@
-package com.management.risk.models.Identification;
+package com.management.risk.Identification;
 
 
 
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.LinkedList;
 import java.util.List;
 
 @Data

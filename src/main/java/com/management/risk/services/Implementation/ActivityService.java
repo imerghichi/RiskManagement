@@ -1,7 +1,7 @@
 package com.management.risk.services.Implementation;
 
-import com.management.risk.models.Identification.Activity;
-import com.management.risk.models.Identification.Project;
+import com.management.risk.Identification.Activity;
+import com.management.risk.Identification.Project;
 import com.management.risk.repositories.ActivityRepo;
 import com.management.risk.services.Interfaces.ActivityServiceI;
 import org.springframework.beans.factory.annotation.Autowired;

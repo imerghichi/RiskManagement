@@ -1,4 +1,4 @@
-package com.management.risk.models.Mitigation;
+package com.management.risk.Mitigation;
 
 import lombok.Data;
 

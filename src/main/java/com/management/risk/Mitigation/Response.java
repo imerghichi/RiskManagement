@@ -1,7 +1,6 @@
-package com.management.risk.models.Mitigation;
+package com.management.risk.Mitigation;
 
 
-import com.management.risk.models.Identification.Risk;
 import lombok.Data;
 
 import javax.persistence.*;

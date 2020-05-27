@@ -1,10 +1,9 @@
 package com.management.risk.Controllers;
 
-import com.management.risk.models.Identification.Portfolio;
-import com.management.risk.models.Identification.Project;
+import com.management.risk.Identification.Portfolio;
+import com.management.risk.Identification.Project;
 import com.management.risk.services.Implementation.PortfolioService;
 import com.management.risk.services.Implementation.ProjectService;
-import org.apache.tomcat.jni.Error;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

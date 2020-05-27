@@ -1,6 +1,6 @@
 package com.management.risk.Analysis.PortfolioAnalysis;
 
-import com.management.risk.models.Identification.Portfolio;
+import com.management.risk.Identification.Portfolio;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 

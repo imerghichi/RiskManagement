@@ -1,6 +1,6 @@
 package com.management.risk.Controllers;
 
-import com.management.risk.models.Mitigation.*;
+import com.management.risk.Mitigation.*;
 import com.management.risk.services.Implementation.ResponseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

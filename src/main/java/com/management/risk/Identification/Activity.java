@@ -1,11 +1,9 @@
-package com.management.risk.models.Identification;
+package com.management.risk.Identification;
 
 
 import lombok.Data;
-import org.hibernate.mapping.Join;
 
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 

@@ -1,7 +1,7 @@
-package com.management.risk.models.Identification;
+package com.management.risk.Identification;
 
 import com.management.risk.Analysis.TreesAnalysis.FaultTree.LeafEvent;
-import com.management.risk.models.Mitigation.Response;
+import com.management.risk.Mitigation.Response;
 import lombok.Data;
 
 import javax.persistence.*;

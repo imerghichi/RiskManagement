@@ -1,7 +1,7 @@
 package com.management.risk.services.Implementation;
 
 import com.management.risk.Analysis.AcceptanceRejectionSampling.RejectionSampler;
-import com.management.risk.models.Identification.DistributionEnum;
+import com.management.risk.Identification.DistributionEnum;
 import com.management.risk.services.Interfaces.AcceptanceRejectionServiceI;
 import org.springframework.stereotype.Service;
 

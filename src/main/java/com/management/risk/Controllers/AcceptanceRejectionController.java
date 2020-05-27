@@ -1,7 +1,7 @@
 package com.management.risk.Controllers;
 
 
-import com.management.risk.models.Identification.DistributionEnum;
+import com.management.risk.Identification.DistributionEnum;
 import com.management.risk.services.Implementation.AcceptanceRejectionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

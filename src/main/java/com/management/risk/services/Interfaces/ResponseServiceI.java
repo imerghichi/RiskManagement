@@ -1,6 +1,6 @@
 package com.management.risk.services.Interfaces;
 
-import com.management.risk.models.Mitigation.*;
+import com.management.risk.Mitigation.*;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;

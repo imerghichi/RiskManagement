@@ -1,7 +1,7 @@
 package com.management.risk.services.Implementation;
 
 import com.management.risk.Analysis.MonteCarlo.MonteCarlo;
-import com.management.risk.models.Identification.Activity;
+import com.management.risk.Identification.Activity;
 import com.management.risk.services.Interfaces.PertMCServiceI;
 import mcsimulations.simulation.SimulationResults;
 import org.springframework.stereotype.Service;

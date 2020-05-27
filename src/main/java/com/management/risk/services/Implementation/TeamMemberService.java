@@ -1,7 +1,7 @@
 package com.management.risk.services.Implementation;
 
-import com.management.risk.models.Identification.Project;
-import com.management.risk.models.Identification.TeamMember;
+import com.management.risk.Identification.Project;
+import com.management.risk.Identification.TeamMember;
 import com.management.risk.repositories.TeamMemberRepo;
 import com.management.risk.services.Interfaces.TeamMemberServiceI;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package com.management.risk.services.Interfaces;
 
-import com.management.risk.models.Identification.Risk;
+import com.management.risk.Identification.Risk;
 
 import java.util.ArrayList;
 import java.util.List;

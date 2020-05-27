@@ -1,7 +1,7 @@
 package com.management.risk.services.Implementation;
 
-import com.management.risk.models.Identification.Risk;
-import com.management.risk.models.Identification.RiskMatrix;
+import com.management.risk.Identification.Risk;
+import com.management.risk.Identification.RiskMatrix;
 import com.management.risk.services.Interfaces.RiskMatrixServiceI;
 import org.springframework.stereotype.Service;
 

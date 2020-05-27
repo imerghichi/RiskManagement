@@ -1,6 +1,6 @@
-package com.management.risk.models.Identification;
+package com.management.risk.Identification;
 
-import static com.management.risk.models.Identification.FirstLevelTaxonomy.*;
+import static com.management.risk.Identification.FirstLevelTaxonomy.*;
 
 public enum SEITaxonomy {
     Requirement(Product_engineering_risk),

@@ -1,6 +1,6 @@
 package com.management.risk.services.Implementation;
 
-import com.management.risk.models.Identification.Project;
+import com.management.risk.Identification.Project;
 import com.management.risk.repositories.ProjectRepo;
 import com.management.risk.services.Interfaces.ProjectServiceI;
 import org.springframework.beans.factory.annotation.Autowired;

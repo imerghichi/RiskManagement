@@ -1,6 +1,6 @@
 package com.management.risk.services.Interfaces;
 
-import com.management.risk.models.Identification.DistributionEnum;
+import com.management.risk.Identification.DistributionEnum;
 
 public interface AcceptanceRejectionServiceI {
     double acceptanceRejection(DistributionEnum distributionEnum, double threshold, double param1);

@@ -1,6 +1,6 @@
 package com.management.risk.Controllers;
 
-import com.management.risk.models.Identification.Activity;
+import com.management.risk.Identification.Activity;
 import com.management.risk.services.Implementation.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

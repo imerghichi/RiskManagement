@@ -1,7 +1,7 @@
 package com.management.risk.services.Implementation;
 
-import com.management.risk.models.Identification.Portfolio;
-import com.management.risk.models.Identification.Project;
+import com.management.risk.Identification.Portfolio;
+import com.management.risk.Identification.Project;
 import com.management.risk.repositories.PortfolioRepo;
 import com.management.risk.services.Interfaces.PortfolioServiceI;
 import org.springframework.beans.factory.annotation.Autowired;

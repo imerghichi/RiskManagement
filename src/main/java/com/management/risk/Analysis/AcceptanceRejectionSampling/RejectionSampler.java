@@ -1,6 +1,6 @@
 package com.management.risk.Analysis.AcceptanceRejectionSampling;
 
-import com.management.risk.models.Identification.DistributionEnum;
+import com.management.risk.Identification.DistributionEnum;
 import org.apache.commons.math3.distribution.*;
 
 public class RejectionSampler {

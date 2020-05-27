@@ -1,9 +1,9 @@
 package com.management.risk.Controllers;
 
-import com.management.risk.models.Identification.Activity;
-import com.management.risk.models.Identification.Project;
-import com.management.risk.models.Identification.Risk;
-import com.management.risk.models.Identification.TeamMember;
+import com.management.risk.Identification.Activity;
+import com.management.risk.Identification.Project;
+import com.management.risk.Identification.Risk;
+import com.management.risk.Identification.TeamMember;
 import com.management.risk.services.Implementation.ActivityService;
 import com.management.risk.services.Implementation.ProjectService;
 import com.management.risk.services.Implementation.RiskService;

@@ -1,8 +1,6 @@
 package com.management.risk.Analysis.TreesAnalysis.FaultTree;
 
 
-import com.management.risk.models.Identification.Risk;
-
 public class FaultTree {
     private UsedMethod usedMethod;
     private LeafEvent root;

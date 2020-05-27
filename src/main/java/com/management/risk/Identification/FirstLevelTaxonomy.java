@@ -1,4 +1,4 @@
-package com.management.risk.models.Identification;
+package com.management.risk.Identification;
 
 public enum FirstLevelTaxonomy {
     Product_engineering_risk,

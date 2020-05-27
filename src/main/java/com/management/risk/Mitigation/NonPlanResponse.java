@@ -1,6 +1,4 @@
-package com.management.risk.models.Mitigation;
-
-import java.util.List;
+package com.management.risk.Mitigation;
 
 public class NonPlanResponse extends Response {
     private NonPlanResponseEnum nonPlanResponseEnum;
