@@ -1,5 +1,8 @@
-package com.management.risk.Identification;
+package com.management.risk.Analysis;
 
+
+import com.management.risk.Identification.Impact;
+import com.management.risk.Identification.Risk;
 
 import java.util.ArrayList;
 import java.util.Collections;
