@@ -62,3 +62,6 @@ public enum SEITaxonomy {
         return null;
     }
 }
+/*
+   'Requirement','Design','Code_and_unit_test','Integration_and_test', 'Engineering_specialities','Development_process', 'Development_system','Management_process', 'Management_methods','Work_environment','Resources','Contract','Program_interface'
+ */

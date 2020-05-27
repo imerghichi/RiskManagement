@@ -15,7 +15,7 @@ public class Risk {
     private long id_risk;
     private String risk_name;
     private String description;
-    @OneToOne
+    @ManyToOne
     private TeamMember idetifier_risk;
     @ManyToOne
     private Activity taskProject;

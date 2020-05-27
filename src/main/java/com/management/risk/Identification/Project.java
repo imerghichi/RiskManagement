@@ -14,7 +14,7 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_project;
     private String project_name;
-    @OneToMany
+    @ManyToMany
     private List<TeamMember> teamMembers;
     @OneToMany
     private List<Activity> taskProjects;
