@@ -45,4 +45,9 @@ public class PortfolioController {
         Project project = projectService.findById(id).orElseThrow(Exception::new);
         return portfolioService.findPortfolioByProject(project);
     }
+    @PutMapping("/putportfolio/")
+    @ResponseBody
+    public Portfolio updateportfolio(@RequestBody Portfolio portfolio){
+        return portfolioService.save(portfolio);
+    }
 }

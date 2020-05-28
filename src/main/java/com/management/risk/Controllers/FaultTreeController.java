@@ -37,4 +37,9 @@ public class FaultTreeController {
         return faultTreeService.save(leafEvent);
     }
 
+    @PutMapping(value = "/putft/")
+    @ResponseBody
+    public LeafEvent updateft(@RequestBody LeafEvent leafEvent){
+        return faultTreeService.save(leafEvent);
+    }
 }

@@ -18,4 +18,10 @@ public interface ResponseServiceI {
     NonPlanResponse save(NonPlanResponse nonPlanResponse);
     StrategicPlan save(StrategicPlan strategicPlan);
 
+    Response update (Response response);
+    //
+    ContingencyPlan update (ContingencyPlan contingencyPlan);
+    MitigationPlan update (MitigationPlan mitigationPlan);
+    NonPlanResponse update(NonPlanResponse nonPlanResponse);
+    StrategicPlan update(StrategicPlan strategicPlan);
 }

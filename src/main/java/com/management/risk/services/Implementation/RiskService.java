@@ -78,4 +78,9 @@ public class RiskService implements RiskServiceI {
         }
         return res;
     }
+
+    @Override
+    public Risk update(Risk risk) {
+        return riskrepo.save(risk);
+    }
 }

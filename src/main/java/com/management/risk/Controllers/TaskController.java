@@ -51,4 +51,24 @@ public class TaskController {
     public Trigger save(@RequestBody Trigger task){
         return taskService.save(task);
     }
+
+
+
+    @PutMapping(value = "/puttask/")
+    @ResponseBody
+    public Task updatetsk(@RequestBody Task task){
+        return taskService.save(task);
+    }
+
+    @PutMapping(value = "/putMilstone/")
+    @ResponseBody
+    public Milstone updatemlstn(@RequestBody Milstone task){
+        return taskService.save(task);
+    }
+
+    @PutMapping(value = "/putTrigger/")
+    @ResponseBody
+    public Trigger updateTrigger(@RequestBody Trigger task){
+        return taskService.save(task);
+    }
 }

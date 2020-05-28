@@ -42,15 +42,37 @@ public class ResponseController {
         return responseService.save(mitigationPlan);
     }
 
-    @PostMapping(value = "/postNPR/")
-    @ResponseBody
-    public NonPlanResponse save(@RequestBody NonPlanResponse nonPlanResponse){
-        return responseService.save(nonPlanResponse);
-    }
-    @PostMapping(value = "/postSP")
+    @PostMapping(value = "/postSP/")
     @ResponseBody
     public StrategicPlan save(@RequestBody StrategicPlan strategicPlan){
         return responseService.save(strategicPlan);
+    }
+    @PostMapping(value = "/postNPR/")
+    @ResponseBody
+    public NonPlanResponse saveNPR(@RequestBody NonPlanResponse nonPlanResponse){
+        return responseService.update(nonPlanResponse);
+    }
+
+    @PutMapping(value = "/putNPR/")
+    @ResponseBody
+    public NonPlanResponse updateNPR(@RequestBody NonPlanResponse nonPlanResponse){
+        return responseService.update(nonPlanResponse);
+    }
+    @PutMapping(value = "/putSP")
+    @ResponseBody
+    public StrategicPlan updateSP(@RequestBody StrategicPlan strategicPlan){
+        return responseService.save(strategicPlan);
+    }
+
+    @PutMapping(value = "/putCP/")
+    @ResponseBody
+    public ContingencyPlan update(@RequestBody ContingencyPlan contingencyPlan){
+        return responseService.save(contingencyPlan);
+    }
+    @PutMapping(value = "/putMP/")
+    @ResponseBody
+    public MitigationPlan updateMP(@RequestBody MitigationPlan mitigationPlan){
+        return responseService.save(mitigationPlan);
     }
 
 }

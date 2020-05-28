@@ -59,4 +59,29 @@ public class ResponseService implements ResponseServiceI {
     public StrategicPlan save(StrategicPlan strategicPlan) {
         return responseRepo.save(strategicPlan);
     }
+
+    @Override
+    public Response update(Response response) {
+        return responseRepo.save(response);
+    }
+
+    @Override
+    public ContingencyPlan update(ContingencyPlan contingencyPlan) {
+        return responseRepo.save(contingencyPlan);
+    }
+
+    @Override
+    public MitigationPlan update(MitigationPlan mitigationPlan) {
+        return responseRepo.save(mitigationPlan);
+    }
+
+    @Override
+    public NonPlanResponse update(NonPlanResponse nonPlanResponse) {
+        return responseRepo.save(nonPlanResponse);
+    }
+
+    @Override
+    public StrategicPlan update(StrategicPlan strategicPlan) {
+        return responseRepo.save(strategicPlan);
+    }
 }

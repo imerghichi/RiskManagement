@@ -17,4 +17,9 @@ public interface TaskServiceI {
     //
     Milstone save (Milstone milstone);
     Trigger save (Trigger trigger);
+
+    Task update (Task task);
+
+    Milstone update (Milstone milstone);
+    Trigger update (Trigger trigger);
 }

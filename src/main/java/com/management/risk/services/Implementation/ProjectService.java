@@ -40,4 +40,9 @@ public class ProjectService implements ProjectServiceI {
     public Project save(Project project) {
         return projectRepo.save(project);
     }
+
+    @Override
+    public Project update(Project project) {
+        return projectRepo.save(project);
+    }
 }

@@ -33,4 +33,11 @@ public class TeamMemberController {
     public TeamMember save(@RequestBody TeamMember teamMember){
         return teamMemberService.save(teamMember);
     }
+
+    @PutMapping(value = "/putTM")
+    @ResponseBody
+    public TeamMember update(@RequestBody TeamMember teamMember){
+        return teamMemberService.save(teamMember);
+    }
+
 }

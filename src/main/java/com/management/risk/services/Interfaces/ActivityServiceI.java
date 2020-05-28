@@ -13,6 +13,7 @@ public interface ActivityServiceI {
     Optional<Activity> findById (long id);
     void deleteById (long id);
     Activity save (Activity activity);
+    Activity update(Activity activity);
 
     //
     List<Activity> findByProject(Project project);

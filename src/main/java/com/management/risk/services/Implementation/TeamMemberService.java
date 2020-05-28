@@ -53,4 +53,9 @@ public class TeamMemberService implements TeamMemberServiceI {
         }
         return res;
     }
+
+    @Override
+    public TeamMember update(TeamMember teamMember) {
+        return teamMemberRepo.save(teamMember);
+    }
 }

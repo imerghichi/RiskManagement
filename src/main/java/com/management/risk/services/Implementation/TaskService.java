@@ -51,4 +51,19 @@ public class TaskService implements TaskServiceI {
     public Trigger save(Trigger trigger) {
         return taskRepo.save(trigger);
     }
+
+    @Override
+    public Task update(Task task) {
+        return taskRepo.save(task);
+    }
+
+    @Override
+    public Milstone update(Milstone milstone) {
+        return taskRepo.save(milstone);
+    }
+
+    @Override
+    public Trigger update(Trigger trigger) {
+        return taskRepo.save(trigger);
+    }
 }

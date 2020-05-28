@@ -37,6 +37,13 @@ public class FaultTreeService implements FaultTreeServiceI {
 
     @Override
     public LeafEvent save(LeafEvent leafEvent) {
+        LeafEvent leafEvent1 = new LeafEvent();
+        leafEvent1 =  faultTreeRepo.save(leafEvent);
+        return leafEvent1;
+    }
+
+    @Override
+    public LeafEvent update(LeafEvent leafEvent) {
         return faultTreeRepo.save(leafEvent);
     }
 }

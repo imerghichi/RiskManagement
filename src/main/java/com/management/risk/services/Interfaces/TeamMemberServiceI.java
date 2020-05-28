@@ -14,6 +14,7 @@ public interface TeamMemberServiceI {
     Optional<TeamMember> findById (long id);
     void deleteById (long id);
     TeamMember save (TeamMember teamMember);
+    TeamMember update (TeamMember teamMember);
     //
     List<TeamMember> findByProject(Project project);
 }

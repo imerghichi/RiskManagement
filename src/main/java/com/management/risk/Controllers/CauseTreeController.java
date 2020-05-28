@@ -45,5 +45,11 @@ public class CauseTreeController {
         return causeTreeService.save(event);
     }
 
+    @PutMapping(value = "/putCT/")
+    @ResponseBody
+    public Event updateEvent(@RequestBody Event event){
+        return causeTreeService.save(event);
+    }
+
 }
 

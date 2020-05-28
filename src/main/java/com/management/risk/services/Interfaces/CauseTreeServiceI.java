@@ -11,6 +11,7 @@ public interface CauseTreeServiceI {    List<Event> findAll();
     Optional<Event> findById (long id);
     void deleteById (long id);
     Event save (Event event);
+    Event update(Event event);
     //
     List<Event> findCauses(long id);
 }

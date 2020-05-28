@@ -13,7 +13,7 @@ public interface PortfolioServiceI {
     Optional<Portfolio> findById (long id);
     void deleteById (long id);
     Portfolio save (Portfolio portfolio);
-
+    Portfolio update(Portfolio portfolio);
     List<Portfolio> findPortfolioByProject (Project project);
     //
 

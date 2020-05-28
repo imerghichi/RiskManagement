@@ -37,6 +37,11 @@ public class CauseTreeService implements CauseTreeServiceI {
     }
 
     @Override
+    public Event update(Event event) {
+        return causeTreeRepo.save(event);
+    }
+
+    @Override
     public Event save(Event event) {
         return causeTreeRepo.save(event);
     }

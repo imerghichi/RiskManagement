@@ -16,7 +16,7 @@ public interface RiskServiceI {
     Optional<Risk> findById (long id);
     void deleteById (long id);
     Risk save (Risk risk);
-
+    Risk update (Risk risk);
     //
     List<Risk> findByActivity(Activity activity);
     List<Risk> findByProject(Project project);

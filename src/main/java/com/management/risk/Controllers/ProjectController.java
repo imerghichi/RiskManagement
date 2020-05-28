@@ -36,4 +36,10 @@ public class ProjectController {
     public Project save(@RequestBody Project project){
         return projectService.save(project);
     }
+
+    @PutMapping(value = "/putproject/")
+    @ResponseBody
+    public Project updateProject(@RequestBody Project project){
+        return projectService.save(project);
+    }
 }

@@ -12,6 +12,7 @@ public interface FaultTreeServiceI {
     Optional<LeafEvent> findById (long id);
     void deleteById (long id);
     LeafEvent save (LeafEvent leafEvent);
+    LeafEvent update(LeafEvent leafEvent);
     //
 
 }

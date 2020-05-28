@@ -13,5 +13,6 @@ public interface ProjectServiceI {
     Optional<Project> findById (long id);
     void deleteById (long id);
     Project save (Project project);
+    Project update (Project project);
 
 }

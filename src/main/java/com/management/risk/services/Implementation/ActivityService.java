@@ -40,7 +40,9 @@ public class ActivityService implements ActivityServiceI {
 
     @Override
     public Activity save(Activity activity) {
-        return activityRepo.save(activity);
+        Activity activity1 = new Activity();
+        activity1 = activityRepo.save(activity);
+        return activity1;
     }
 
     @Override
@@ -53,5 +55,10 @@ public class ActivityService implements ActivityServiceI {
                 res.add(activity);
         }
         return res;
+    }
+
+    @Override
+    public Activity update(Activity activity) {
+        return activityRepo.save(activity);
     }
 }

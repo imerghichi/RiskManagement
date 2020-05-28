@@ -1,45 +1,45 @@
 package com.management.risk.Analysis.AcceptanceRejectionSampling;
 
+import com.management.risk.Identification.Activity;
 import com.management.risk.Identification.DistributionEnum;
 import org.apache.commons.math3.distribution.*;
 
 public class RejectionSampler {
-    private DistributionEnum distribution;
     private double threshold;
-    private double param1;
-    private double param2;
-
-    public RejectionSampler(DistributionEnum distribution, double threshold) {
-        this.distribution = distribution;
+    private Activity activity;
+    public RejectionSampler( double threshold, Activity activity) {
         this.threshold = threshold;
+        this.activity = activity;
     }
     AbstractRealDistribution distribution(){
-        switch (this.distribution){
-            case Gamma: return new GammaDistribution(this.param1, this.param2);
-            case Gaussian: return new NormalDistribution(this.param1,this.param2);
-            case Chi_square: return new ChiSquaredDistribution(this.param1);
-            case Log_normal: return new LogNormalDistribution(this.param1,this.param2);
-            case Student: return new TDistribution(this.param1);
-            case Laplace:return new LaplaceDistribution(this.param1,this.param2);
-            case Gumbel:return new GumbelDistribution(this.param1,this.param2);
+        switch (this.activity.getDistribution()){
+            case Gamma: return new GammaDistribution(activity.getParametre1(), activity.getParametre1());
+            case Gaussian: return new NormalDistribution(activity.getParametre1(), activity.getParametre1());
+            case Chi_square: return new ChiSquaredDistribution(activity.getParametre1());
+            case Log_normal: return new LogNormalDistribution(activity.getParametre1(), activity.getParametre1());
+            case Student: return new TDistribution(activity.getParametre1());
+            case Laplace:return new LaplaceDistribution(activity.getParametre1(), activity.getParametre1());
+            case Gumbel:return new GumbelDistribution(activity.getParametre1(), activity.getParametre1());
         }
         return null;
     }
 
-    public void setDistribution(DistributionEnum distribution) {
-        this.distribution = distribution;
-    }
 
     public void setThreshold(double threshold) {
         this.threshold = threshold;
     }
 
-    public void setParam1(double param1) {
-        this.param1 = param1;
+
+    public double getThreshold() {
+        return threshold;
     }
 
-    public void setParam2(double param2) {
-        this.param2 = param2;
+    public Activity getActivity() {
+        return activity;
+    }
+
+    public void setActivity(Activity activity) {
+        this.activity = activity;
     }
 
     public double simulate(){

@@ -32,7 +32,14 @@ public class ActivityController {
     }
 
     @PostMapping
+    @ResponseBody
     public Activity postActivity(@RequestBody Activity activity){
         return activityService.save(activity);
+    }
+
+    @PutMapping
+    @ResponseBody
+    public Activity putActivity(@RequestBody Activity activity){
+        return activityService.update(activity);
     }
 }

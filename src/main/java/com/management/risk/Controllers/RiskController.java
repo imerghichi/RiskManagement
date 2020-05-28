@@ -67,4 +67,10 @@ public class RiskController {
         return riskService.save(risk);
     }
 
+    @PutMapping(value = "/putrisk")
+    @ResponseBody
+    public Risk updateRisk(@RequestBody Risk risk){
+        return riskService.save(risk);
+    }
+
 }

@@ -54,4 +54,9 @@ public class PortfolioService implements PortfolioServiceI {
         }
         return res;
     }
+
+    @Override
+    public Portfolio update(Portfolio portfolio) {
+        return portfolioRepo.save(portfolio);
+    }
 }
