@@ -13,6 +13,6 @@ public enum CategoriesEnum {
     // external risks
     customer_risk,
     competitor_risk,
-    society_risk;
+    society_risk
 
 }
