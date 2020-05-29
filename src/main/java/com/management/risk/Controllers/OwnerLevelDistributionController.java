@@ -1,5 +1,7 @@
 package com.management.risk.Controllers;
 
+import com.management.risk.Exception.BusinessException;
+import com.management.risk.Exception.Exceptions;
 import com.management.risk.Identification.Risk;
 import com.management.risk.services.Implementation.OwnerLevelDistributionService;
 import com.management.risk.services.Implementation.RiskService;
@@ -19,8 +21,9 @@ public class OwnerLevelDistributionController {
 
     @GetMapping("/{id}")
     @ResponseBody
-    public List<Float> get(@PathVariable long id){
+    public List<Float> get(@PathVariable long id) throws BusinessException {
         List<Risk> risks = riskService.findAll();
+        if(risks == null) throw new BusinessException(Exceptions.NO_RISK_FOUND.toString());
         return ownerLevelDistributionService.frequencies(risks);
     }
 }
