@@ -10,6 +10,7 @@ public class LeafEvent{
     private String event_name;
     @Enumerated(EnumType.STRING)
     private EventType type;
+    @Column(columnDefinition = "float default 0.0")
     private float probability;
     @Enumerated(EnumType.STRING)
     private OperatorEnum operande;

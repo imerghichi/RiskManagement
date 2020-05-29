@@ -13,11 +13,15 @@ public class Activity {
     private static AtomicInteger count = new AtomicInteger(0);
     @Id
     private long id_task_project;
+    @Column(nullable = false, unique = true)
     private String task_name;
     private String description;
     //parametres de distribution
+    @Column(columnDefinition = "double default 0")
     private int parametre1;
+    @Column(columnDefinition = "double default 0")
     private int parametre2;
+    @Column(columnDefinition = "double default 0")
     private int parametre3;
     @Enumerated(EnumType.STRING)
     private DistributionEnum distribution;

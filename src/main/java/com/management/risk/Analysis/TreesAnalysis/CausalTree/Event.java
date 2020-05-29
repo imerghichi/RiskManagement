@@ -9,6 +9,7 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_event;
+    @Column(nullable = false)
     private String name_event;
     private String description_event;
     @OneToMany

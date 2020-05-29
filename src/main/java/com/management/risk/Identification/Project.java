@@ -5,6 +5,7 @@ package com.management.risk.Identification;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Data
@@ -13,6 +14,7 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_project;
+    @Column(unique = true,nullable = false)
     private String project_name;
     @ManyToMany
     private List<TeamMember> teamMembers;
@@ -20,6 +22,7 @@ public class Project {
     private List<Activity> taskProjects;
     @OneToOne
     private Portfolio portfolio;
+
     public List<TeamMember> getTeamMembers() {
         return teamMembers;
     }

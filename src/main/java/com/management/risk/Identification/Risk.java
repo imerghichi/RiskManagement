@@ -3,6 +3,7 @@ package com.management.risk.Identification;
 import com.management.risk.Analysis.TreesAnalysis.FaultTree.LeafEvent;
 import com.management.risk.Mitigation.Response;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,19 +14,24 @@ public class Risk {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_risk;
+    @Column(nullable = false, updatable = false)
     private String risk_name;
     private String description;
     @ManyToOne
     private TeamMember idetifier_risk;
     @ManyToOne
     private Activity taskProject;
+    @Column(columnDefinition = "float default 0.0")
     private float probabilty;
+    @Column(columnDefinition = "float default 0.0")
     private float detection_difficulty;
+    @Column(columnDefinition = "float default 0.0")
     private float vulnerability; //when detected
     @Enumerated(EnumType.STRING)
     private Impact impact;
     private boolean active; // vs latent
     private String consquence_description;
+    @CreationTimestamp
     private Date date_risk;
     @Enumerated(EnumType.STRING)
     private Nature nature_risk;
@@ -48,7 +54,6 @@ public class Risk {
     private LeafEvent leafEvent;
     @ManyToOne
     private Project project;
-    //todo service..
 
     public Risk(Activity taskProject) {
         this.taskProject = taskProject;

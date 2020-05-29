@@ -8,10 +8,15 @@ public class Portfolio {
     @Id
     @GeneratedValue (strategy =  GenerationType.AUTO)
     private long id_portfolio;
+    @Column(unique = true,nullable = false)
     private String description;
+    @Column(columnDefinition = "double default 0")
     private double mean;
+    @Column(columnDefinition = "double default 0")
     private double standardDeviation;
+    @Column(columnDefinition = "double default 0")
     private BigDecimal initialInvestment;
+    @Column(columnDefinition = "double default 0")
     private double inflationRate;
     @OneToOne
     private Project project;
