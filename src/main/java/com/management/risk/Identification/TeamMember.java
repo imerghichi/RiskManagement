@@ -11,6 +11,11 @@ public class TeamMember {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id_team_member;
+    @Column(nullable = false)
+    private String first_name;
+    @Column(nullable = false)
+    private String last_name;
+    //private long CIN;
     @ManyToMany
     private List<Project> project;
 

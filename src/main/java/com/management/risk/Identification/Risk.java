@@ -18,11 +18,11 @@ public class Risk {
     private String risk_name;
     private String description;
     @ManyToOne
-    private TeamMember idetifier_risk;
+    private TeamMember identifier_risk;
     @ManyToOne
     private Activity taskProject;
     @Column(columnDefinition = "float default 0.0")
-    private float probabilty;
+    private float probability;
     @Column(columnDefinition = "float default 0.0")
     private float detection_difficulty;
     @Column(columnDefinition = "float default 0.0")
@@ -68,7 +68,7 @@ public class Risk {
 
     public float exposure(){
         if(isDetected()) return 1;
-        return this.probabilty * impact();
+        return this.probability * impact();
 
     }
 
@@ -131,20 +131,20 @@ public class Risk {
         this.description = description;
     }
 
-    public TeamMember getIdetifier_risk() {
-        return idetifier_risk;
+    public TeamMember getIdentifier_risk() {
+        return identifier_risk;
     }
 
-    public void setIdetifier_risk(TeamMember idetifier_risk) {
-        this.idetifier_risk = idetifier_risk;
+    public void setIdentifier_risk(TeamMember idetifier_risk) {
+        this.identifier_risk = idetifier_risk;
     }
 
-    public float getProbabilty() {
-        return probabilty;
+    public float getProbability() {
+        return probability;
     }
 
-    public void setProbabilty(float probabilty) {
-        this.probabilty = probabilty;
+    public void setProbability(float probabilty) {
+        this.probability = probabilty;
     }
 
     public Impact getImpact() {

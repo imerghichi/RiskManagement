@@ -28,7 +28,7 @@ public class RiskMatrix {
         ArrayList<ArrayList<ArrayList<Risk>>> matrix = new ArrayList<>(Collections.nCopies(this.probability_interval_division, list));
         for (Risk risk:
                 this.risks) {
-            int x = (int) Math.floor(risk.getProbabilty()* this.probability_interval_division);
+            int x = (int) Math.floor(risk.getProbability()* this.probability_interval_division);
             int y = risk.getImpact().getValue();
             matrix.get(y).get(x).add(risk);
         }

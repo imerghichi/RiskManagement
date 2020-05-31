@@ -16,6 +16,7 @@ public class Project {
     private long id_project;
     @Column(unique = true,nullable = false)
     private String project_name;
+    private String project_description;
     @ManyToMany
     private List<TeamMember> teamMembers;
     @OneToMany

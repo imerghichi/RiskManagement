@@ -13,7 +13,7 @@ public class LeafEvent{
     @Column(columnDefinition = "float default 0.0")
     private float probability;
     @Enumerated(EnumType.STRING)
-    private OperatorEnum operande;
+    private OperatorEnum operator;
     @OneToOne
     private LeafEvent right_event;
     @OneToOne
@@ -60,11 +60,11 @@ public class LeafEvent{
     }
 
     public OperatorEnum getOperande() {
-        return operande;
+        return operator;
     }
 
-    public void setOperande(OperatorEnum operande) {
-        this.operande = operande;
+    public void setOperator(OperatorEnum operande) {
+        this.operator = operande;
     }
 
     public float getProbability() {
@@ -91,7 +91,7 @@ public class LeafEvent{
         this.type = type;
     }
 
-    public boolean isOperande(){
-        return this.operande != null;
+    public boolean isOperator(){
+        return this.operator != null;
     }
 }

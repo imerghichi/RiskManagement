@@ -19,7 +19,8 @@ DROP TABLE IF EXISTS mydb.Project ;
 
 CREATE TABLE IF NOT EXISTS mydb.Project (
   id_project INT NOT NULL,
-  project_name VARCHAR(45) NULL,
+  project_name VARCHAR(45) ,
+  project_description VARCHAR(45) NULL,
   Portfolio_id_portfolio INT NOT NULL,
   PRIMARY KEY (id_project),
   CONSTRAINT fk_Project_Portfolio1
@@ -82,7 +83,8 @@ DROP TABLE IF EXISTS mydb.TeamMember ;
 
 CREATE TABLE IF NOT EXISTS mydb.TeamMember (
   id_team_member INT NOT NULL,
-  update_time  NULL,
+    first_name VARCHAR(45) NOT NULL,
+    last_name VARCHAR(45) NOT NULL,
   PRIMARY KEY (id_team_member));
 
 
@@ -246,6 +248,7 @@ CREATE TABLE IF NOT EXISTS mydb.workson (
 CREATE INDEX fk_Project_has_TeamMember_TeamMember1_idx ON mydb.workson (TeamMember_id_team_member ASC);
 
 CREATE INDEX fk_Project_has_TeamMember_Project1_idx ON mydb.workson (Project_id_project ASC);
+
 
 
 --SET SQL_MODE=@OLD_SQL_MODE;

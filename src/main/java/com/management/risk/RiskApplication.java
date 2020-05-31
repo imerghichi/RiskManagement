@@ -9,6 +9,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class RiskApplication {
 
 	public static void main(String[] args) {
+
+
 		SpringApplication.run(RiskApplication.class, args);
 	}
 

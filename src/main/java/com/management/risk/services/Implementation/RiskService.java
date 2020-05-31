@@ -73,7 +73,7 @@ public class RiskService implements RiskServiceI {
         List<Risk> res = new ArrayList<>();
         for (Risk risk:
                 risks) {
-            if(risk.getIdetifier_risk() == teamMember)
+            if(risk.getIdentifier_risk() == teamMember)
                 res.add(risk);
         }
         return res;
