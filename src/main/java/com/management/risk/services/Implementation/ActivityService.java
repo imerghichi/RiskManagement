@@ -12,39 +12,77 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The type Activity service.
+ */
 @Service
 public class ActivityService implements ActivityServiceI {
+    /**
+     * The Activity repo.
+     */
     @Autowired
     private ActivityRepo activityRepo;
 
+    /**
+     * Find all list.
+     *
+     * @return the list
+     */
     @Override
     public List<Activity> findAll() {
         return activityRepo.findAll();
     }
 
+    /**
+     * Find all list.
+     *
+     * @param sort the sort
+     * @return the list
+     */
     @Override
     public List<Activity> findAll(Sort sort) {
         return activityRepo.findAll(sort);
     }
 
+    /**
+     * Find by id optional.
+     *
+     * @param id the id
+     * @return the optional
+     */
     @Override
     public Optional<Activity> findById(long id) {
         return activityRepo.findById(id);
     }
 
+    /**
+     * Delete by id.
+     *
+     * @param id the id
+     */
     @Override
     public void deleteById(long id) {
         activityRepo.deleteById(id);
 
     }
 
+    /**
+     * Save activity.
+     *
+     * @param activity the activity
+     * @return the activity
+     */
     @Override
     public Activity save(Activity activity) {
-        Activity activity1 = new Activity();
-        activity1 = activityRepo.save(activity);
-        return activity1;
+        return activityRepo.save(activity);
     }
 
+    /**
+     * Find by project list.
+     *
+     * @param project the project
+     * @return the list
+     */
     @Override
     public List<Activity> findByProject(Project project) {
         List<Activity> activities = activityRepo.findAll();
@@ -57,6 +95,12 @@ public class ActivityService implements ActivityServiceI {
         return res;
     }
 
+    /**
+     * Update activity.
+     *
+     * @param activity the activity
+     * @return the activity
+     */
     @Override
     public Activity update(Activity activity) {
         return activityRepo.save(activity);

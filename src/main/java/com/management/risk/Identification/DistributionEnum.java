@@ -1,23 +1,68 @@
 package com.management.risk.Identification;
 
+/**
+ * The enum Distribution enum.
+ */
 public enum DistributionEnum {
+    /**
+     * Uniform distribution enum.
+     */
     Uniform,
+    /**
+     * Triangular distribution enum.
+     */
     Triangular,
+    /**
+     * Gaussian distribution enum.
+     */
     Gaussian,
+    /**
+     * Exponential distribution enum.
+     */
     Exponential,
+    /**
+     * Beta distribution enum.
+     */
     Beta,
-    //for rejection sampler
+    /**
+     * The Gamma.
+     */
+//for rejection sampler
     Gamma,
+    /**
+     * Chi square distribution enum.
+     */
     Chi_square,
-  //  Half_normal,
+    /**
+     * Log normal distribution enum.
+     */
+//  Half_normal,
     Log_normal,
+    /**
+     * Student distribution enum.
+     */
     Student,
+    /**
+     * Laplace distribution enum.
+     */
     Laplace,
+    /**
+     * Gumbel distribution enum.
+     */
     Gumbel;
 
-     DistributionEnum() {
+    /**
+     * Instantiates a new Distribution enum.
+     */
+    DistributionEnum() {
     }
 
+    /**
+     * Getdistr distribution enum.
+     *
+     * @param string the string
+     * @return the distribution enum
+     */
     public DistributionEnum getdistr(String string){
         if(string.equals("uniform"))
             return DistributionEnum.Uniform;

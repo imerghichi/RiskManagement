@@ -10,38 +10,77 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The type Fault tree service.
+ */
 @Service
 public class FaultTreeService implements FaultTreeServiceI {
+    /**
+     * The Fault tree repo.
+     */
     @Autowired
     private FaultTreeRepo faultTreeRepo;
 
+    /**
+     * Find all list.
+     *
+     * @return the list
+     */
     @Override
     public List<LeafEvent> findAll() {
         return faultTreeRepo.findAll();
     }
 
+    /**
+     * Find all list.
+     *
+     * @param sort the sort
+     * @return the list
+     */
     @Override
     public List<LeafEvent> findAll(Sort sort) {
         return faultTreeRepo.findAll(sort);
     }
 
+    /**
+     * Find by id optional.
+     *
+     * @param id the id
+     * @return the optional
+     */
     @Override
     public Optional<LeafEvent> findById(long id) {
         return faultTreeRepo.findById(id);
     }
 
+    /**
+     * Delete by id.
+     *
+     * @param id the id
+     */
     @Override
     public void deleteById(long id) {
         faultTreeRepo.deleteById(id);
     }
 
+    /**
+     * Save leaf event.
+     *
+     * @param leafEvent the leaf event
+     * @return the leaf event
+     */
     @Override
     public LeafEvent save(LeafEvent leafEvent) {
-        LeafEvent leafEvent1 = new LeafEvent();
-        leafEvent1 =  faultTreeRepo.save(leafEvent);
-        return leafEvent1;
+        return faultTreeRepo.save(leafEvent);
+
     }
 
+    /**
+     * Update leaf event.
+     *
+     * @param leafEvent the leaf event
+     * @return the leaf event
+     */
     @Override
     public LeafEvent update(LeafEvent leafEvent) {
         return faultTreeRepo.save(leafEvent);

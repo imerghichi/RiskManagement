@@ -14,15 +14,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
+/**
+ * The type Fault tree assess controller.
+ */
 @RestController(value = "/asessFaultTree")
 public class FaultTreeAssessController {
+    /**
+     * The Fault tree assess.
+     */
     @Autowired
     private FaultTreeAssessImpl faultTreeAssess;
+    /**
+     * The Fault tree service.
+     */
     private FaultTreeService faultTreeService;
 
+    /**
+     * Gets assess.
+     *
+     * @param id         the id
+     * @param usedMethod the used method
+     * @return the assess
+     * @throws BusinessException the business exception
+     */
     @GetMapping(value = "/{id}/{usedMethod")
     @ResponseBody
-    public double getAssess(@PathVariable long id, @PathVariable String usedMethod) throws Exception, BusinessException {
+    public double getAssess(@PathVariable long id, @PathVariable String usedMethod) throws BusinessException {
         if(!faultTreeService.findById(id).isPresent()) throw new BusinessException(Exceptions.NO_FAULT_TREE_FOUND.toString());
         LeafEvent leafEvent = faultTreeService.findById(id).orElse(null);
         UsedMethod usedMethod1 = UsedMethod.valueOf(usedMethod);

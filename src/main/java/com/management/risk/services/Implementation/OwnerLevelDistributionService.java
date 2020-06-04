@@ -7,8 +7,17 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Owner level distribution service.
+ */
 @Service
 public class OwnerLevelDistributionService implements OwnerLevelDistributionServiceI {
+    /**
+     * Frequencies list.
+     *
+     * @param risks the risks
+     * @return the list
+     */
     @Override
     public List<Float> frequencies(List<Risk> risks) {
     List<Float> res = new ArrayList<>();
@@ -16,11 +25,11 @@ public class OwnerLevelDistributionService implements OwnerLevelDistributionServ
     // spec
         List<Integer> occ = occurences(risks);
         int total = occ.get(0)+ occ.get(1)+ occ.get(2)+occ.get(3)+occ.get(4);
-        float entreprise_level = occ.get(0) / total;
-        float sbu_level = occ.get(1) / total;
-        float program = occ.get(2) / total;
-        float project = occ.get(3) / total;
-        float process = occ.get(4) /total;
+        float entreprise_level = (float) occ.get(0) / (float)total;
+        float sbu_level = (float) occ.get(1) / (float)total;
+        float program = (float) occ.get(2) / (float)total;
+        float project = (float) occ.get(3) /(float) total;
+        float process =(float) occ.get(4) /(float) total;
         res.add(entreprise_level);
         res.add(sbu_level);
         res.add(program);
@@ -29,6 +38,12 @@ public class OwnerLevelDistributionService implements OwnerLevelDistributionServ
         return res;
 }
 
+    /**
+     * Occurences list.
+     *
+     * @param risks the risks
+     * @return the list
+     */
 /*
     Enterprise_Level,
     SBU_Level,
@@ -63,11 +78,11 @@ public class OwnerLevelDistributionService implements OwnerLevelDistributionServ
                     break;
             }
         }
-        res.add(new Integer(sum_entreprise));
-        res.add(new Integer(sum_sbu));
-        res.add(new Integer(sum_program));
-        res.add(new Integer(sum_project));
-        res.add(new Integer(sum_process));
+        res.add(sum_entreprise);
+        res.add(sum_sbu);
+        res.add(sum_program);
+        res.add(sum_project);
+        res.add(sum_process);
         return res;
     }
 }

@@ -8,8 +8,17 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Inter exter distribution service.
+ */
 @Service
 public class InterExterDistributionService implements InternExternDistributionServiceI {
+    /**
+     * Frequencies list.
+     *
+     * @param risks the risks
+     * @return the list
+     */
     @Override
     public List<Float> frequencies(List<Risk> risks) {
         List<Float> res = new ArrayList<>();
@@ -17,13 +26,19 @@ public class InterExterDistributionService implements InternExternDistributionSe
         // spec
         List<Integer> occ = occurences(risks);
         int total = occ.get(0)+ occ.get(1);
-        float external = occ.get(0) / total;
-        float internal = occ.get(1) / total;
+        float external =(float) occ.get(0) / (float) total;
+        float internal =(float) occ.get(1) /(float) total;
         res.add(external);
         res.add(internal);
         return res;
     }
 
+    /**
+     * Occurences list.
+     *
+     * @param risks the risks
+     * @return the list
+     */
     private List<Integer> occurences(List<Risk> risks){
         List<Integer> res = new ArrayList<>();
         int sum_intern = 0;
@@ -33,8 +48,8 @@ public class InterExterDistributionService implements InternExternDistributionSe
             if (risk.getOrigin_risk().equals(Origin.external) || risk.getOrigin_risk().equals(Origin.vendor)) sum_extern++;
             else if (risk.getOrigin_risk().equals(Origin.internal)) sum_intern++;
         }
-        res.add(new Integer(sum_extern));
-        res.add(new Integer(sum_intern));
+        res.add(sum_extern);
+        res.add(sum_intern);
         return res;
     }
 }

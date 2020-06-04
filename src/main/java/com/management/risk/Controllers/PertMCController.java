@@ -12,10 +12,24 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * The type Pert mc controller.
+ */
 @RestController("/PertMC")
 public class PertMCController {
+    /**
+     * The Pert mc service.
+     */
     @Autowired
     private PertMCService pertMCService;
+
+    /**
+     * Gets pert mc.
+     *
+     * @param activities the activities
+     * @return the pert mc
+     * @throws Exception the exception
+     */
     @GetMapping(value = "/MC/")
     @ResponseBody
     public SimulationResults getPertMC(@RequestBody List<Activity> activities) throws Exception {

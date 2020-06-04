@@ -13,12 +13,28 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * The type Intern extern distribution controller.
+ */
 @Controller("/inter_extern")
 public class InternExternDistributionController {
+    /**
+     * The Inter exter distribution service.
+     */
     @Autowired
     private InterExterDistributionService interExterDistributionService;
+    /**
+     * The Risk service.
+     */
     private RiskService riskService;
 
+    /**
+     * Get list.
+     *
+     * @param id the id
+     * @return the list
+     * @throws BusinessException the business exception
+     */
     @GetMapping(value = "/{id}}")
     @ResponseBody
     public  List<Float> get(@PathVariable long id) throws BusinessException {

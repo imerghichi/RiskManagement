@@ -1,7 +1,16 @@
 package com.management.risk.Analysis.TreesAnalysis.FaultTree;
 
+/**
+ * The enum Operator enum.
+ */
 public enum OperatorEnum {
-    //NOT,
+    /**
+     * Or operator enum.
+     */
+//NOT,
     OR, //1
+    /**
+     * And operator enum.
+     */
     AND //2
 }

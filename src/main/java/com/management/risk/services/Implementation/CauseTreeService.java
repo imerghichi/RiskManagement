@@ -7,47 +7,97 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The type Cause tree service.
+ */
 @Service
 public class CauseTreeService implements CauseTreeServiceI {
+    /**
+     * The Cause tree repo.
+     */
     @Autowired
     private CauseTreeRepo causeTreeRepo;
 
+    /**
+     * Find all list.
+     *
+     * @return the list
+     */
     @Override
     public List<Event> findAll() {
         return causeTreeRepo.findAll();
     }
 
+    /**
+     * Find all list.
+     *
+     * @param sort the sort
+     * @return the list
+     */
     @Override
     public List<Event> findAll(Sort sort) {
         return causeTreeRepo.findAll(sort);
     }
 
+    /**
+     * Find by id optional.
+     *
+     * @param id the id
+     * @return the optional
+     */
     @Override
     public Optional<Event> findById(long id) {
         return causeTreeRepo.findById(id);
     }
 
+    /**
+     * Delete by id.
+     *
+     * @param id the id
+     */
     @Override
     public void deleteById(long id) {
         causeTreeRepo.deleteById(id);
 
     }
 
+    /**
+     * Update event.
+     *
+     * @param event the event
+     * @return the event
+     */
     @Override
     public Event update(Event event) {
         return causeTreeRepo.save(event);
     }
 
+    /**
+     * Save event.
+     *
+     * @param event the event
+     * @return the event
+     */
     @Override
     public Event save(Event event) {
         return causeTreeRepo.save(event);
     }
 
+    /**
+     * Find causes list.
+     *
+     * @param id the id
+     * @return the list
+     */
     @Override
     public List<Event> findCauses(long id) {
-       return findById(id).orElse(null).getCauses();
+       if(findById(id).isPresent()) {
+           return new ArrayList<>();
+       }
+       else return findById(id).orElse(null).getCauses();
     }
 }
