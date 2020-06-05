@@ -84,43 +84,7 @@ public enum SEITaxonomy {
         return first_level_taxonomy;
     }
 
-    /**
-     * To string string.
-     *
-     * @return the string
-     */
-    @Override
-    public String toString() {
-        switch (this){
-            case Requirement:
-                return "Requirement";
-            case Design:
-                return "Design";
-            case Code_and_unit_test:
-                return "Code and unit test";
-            case Integration_and_test:
-                return "Integration and test";
-            case Engineering_specialities:
-                return "Engineering specialities";
-            case Development_process:
-                return "Development process";
-            case Development_system:
-                return "Development system";
-            case Management_process:
-                return "Management process";
-            case Management_methods:
-                return "Management methods";
-            case Work_environment:
-                return "Work environment";
-            case Resources:
-                return "Resources";
-            case Contract:
-                return "Contract";
-            case Program_interface:
-                return "Program interface";
-        }
-        return null;
-    }
+
 }
 /*
    'Requirement','Design','Code_and_unit_test','Integration_and_test', 'Engineering_specialities','Development_process', 'Development_system','Management_process', 'Management_methods','Work_environment','Resources','Contract','Program_interface'

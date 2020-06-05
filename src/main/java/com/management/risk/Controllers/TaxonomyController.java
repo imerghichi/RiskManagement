@@ -48,4 +48,5 @@ public class TaxonomyController {
     public double frequency (@PathVariable FirstLevelTaxonomy firstLevelTaxonomy, @PathVariable List<Risk> risks){
         return taxonomyService.frequency(firstLevelTaxonomy, risks);
     }
+    //todo retun list
 }

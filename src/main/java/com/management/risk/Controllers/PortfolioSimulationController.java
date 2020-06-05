@@ -83,6 +83,6 @@ public class PortfolioSimulationController {
         Portfolio portfolio = portfolioService.findById(id).orElseThrow(Exception::new);
         return portfolioSimulationService.getMedian(years,sim,portfolio);
     }
-
+    //todo return list
 
 }
