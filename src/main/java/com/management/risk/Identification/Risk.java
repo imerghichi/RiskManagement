@@ -1,5 +1,6 @@
 package com.management.risk.Identification;
 
+import com.management.risk.Analysis.TreesAnalysis.CausalTree.Event;
 import com.management.risk.Analysis.TreesAnalysis.FaultTree.LeafEvent;
 import com.management.risk.Mitigation.Response;
 import lombok.Data;
@@ -126,6 +127,8 @@ public class Risk {
      */
     @ManyToOne
     private Project project;
+    @OneToOne
+    private Event event;
 
     /**
      * Instantiates a new Risk.

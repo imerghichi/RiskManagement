@@ -1,6 +1,7 @@
 package com.management.risk.services.Implementation;
 
 import com.management.risk.Mitigation.Milstone;
+import com.management.risk.Mitigation.Response;
 import com.management.risk.Mitigation.Task;
 import com.management.risk.Mitigation.Trigger;
 import com.management.risk.repositories.TaskRepo;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +24,20 @@ public class TaskService implements TaskServiceI {
      */
     @Autowired
     private TaskRepo taskRepo;
+
+    @Override
+    public List<Task> findByResponse(Response response) {
+        List<Task> all = findAll();
+        List<Task> tasks = new ArrayList<>();
+        for (Task task:
+             all) {
+            if(task.getResponse().equals(response)){
+                tasks.add(task);
+            }
+        }
+        return tasks;
+    }
+
 
     /**
      * Find all list.

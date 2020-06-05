@@ -1,6 +1,7 @@
 package com.management.risk.Mitigation;
 
 
+import com.management.risk.Identification.Risk;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -35,6 +36,8 @@ public  class Response {
      */
     @OneToMany
     protected List<Task> tasks;
+    @OneToOne
+    protected Risk risk;
     /**
      * The Non plan response enum.
      */
@@ -45,6 +48,14 @@ public  class Response {
      * Instantiates a new Response.
      */
     public Response() {
+    }
+
+    public Risk getRisk() {
+        return risk;
+    }
+
+    public void setRisk(Risk risk) {
+        this.risk = risk;
     }
 
     /**

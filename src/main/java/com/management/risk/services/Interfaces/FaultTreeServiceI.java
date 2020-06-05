@@ -1,6 +1,7 @@
 package com.management.risk.services.Interfaces;
 
 import com.management.risk.Analysis.TreesAnalysis.FaultTree.LeafEvent;
+import com.management.risk.Identification.Risk;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.Optional;
  * The interface Fault tree service i.
  */
 public interface FaultTreeServiceI {
+    LeafEvent findByRisk(Risk risk);
+
     /**
      * Find all list.
      *

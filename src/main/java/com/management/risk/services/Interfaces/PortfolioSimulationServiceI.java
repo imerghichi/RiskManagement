@@ -1,11 +1,13 @@
 package com.management.risk.services.Interfaces;
 
+import antlr.collections.List;
 import com.management.risk.Identification.Portfolio;
 
 /**
  * The interface Portfolio simulation service i.
  */
 public interface PortfolioSimulationServiceI {
+    double[] getallPercetilles(int num_years,int num_sim, Portfolio portfolio);
     /**
      * Gets ten percent best case.
      *

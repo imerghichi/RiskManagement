@@ -2,6 +2,7 @@ package com.management.risk.services.Implementation;
 
 import com.management.risk.Analysis.MonteCarlo.MonteCarlo;
 import com.management.risk.Identification.Activity;
+import com.management.risk.Identification.Project;
 import com.management.risk.services.Interfaces.PertMCServiceI;
 import mcsimulations.simulation.SimulationResults;
 import org.springframework.stereotype.Service;
@@ -24,5 +25,10 @@ public class PertMCService implements PertMCServiceI {
     public SimulationResults pertMC(List<Activity> activities) throws Exception {
         MonteCarlo monteCarlo = new MonteCarlo(activities);
         return monteCarlo.simulate();
+    }
+
+    @Override
+    public SimulationResults perMC(Project project) throws Exception {
+        return pertMC(project.getTaskProjects());
     }
 }

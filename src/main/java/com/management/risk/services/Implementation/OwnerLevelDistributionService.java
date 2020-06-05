@@ -1,5 +1,7 @@
 package com.management.risk.services.Implementation;
 
+import com.management.risk.Identification.Activity;
+import com.management.risk.Identification.Project;
 import com.management.risk.Identification.Risk;
 import com.management.risk.services.Interfaces.OwnerLevelDistributionServiceI;
 import org.springframework.stereotype.Service;
@@ -37,6 +39,22 @@ public class OwnerLevelDistributionService implements OwnerLevelDistributionServ
         res.add(process);
         return res;
 }
+
+    @Override
+    public List<Float> frequencies(Activity activity) {
+        return frequencies(activity.getRisks());
+    }
+
+    @Override
+    public List<Float> frequencies(Project project) {
+        List<Float> floats = new ArrayList<>();
+        List<Activity> activities = project.getTaskProjects();
+        for (Activity activity:
+                activities) {
+            floats.addAll(frequencies(activity));
+        }
+        return floats;
+    }
 
     /**
      * Occurences list.

@@ -1,6 +1,8 @@
 package com.management.risk.Analysis.TreesAnalysis.CausalTree;
 
 
+import com.management.risk.Identification.Risk;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -24,6 +26,17 @@ public class Event {
      * The Description event.
      */
     private String description_event;
+    @OneToOne
+    private Risk risk;
+
+    public Risk getRisk() {
+        return risk;
+    }
+
+    public void setRisk(Risk risk) {
+        this.risk = risk;
+    }
+
     /**
      * The Causes.
      */

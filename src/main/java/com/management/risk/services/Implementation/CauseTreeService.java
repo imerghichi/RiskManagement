@@ -1,7 +1,9 @@
 package com.management.risk.services.Implementation;
 
 import com.management.risk.Analysis.TreesAnalysis.CausalTree.Event;
+import com.management.risk.Identification.Risk;
 import com.management.risk.repositories.CauseTreeRepo;
+import com.management.risk.repositories.Riskrepo;
 import com.management.risk.services.Interfaces.CauseTreeServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -21,7 +23,7 @@ public class CauseTreeService implements CauseTreeServiceI {
      */
     @Autowired
     private CauseTreeRepo causeTreeRepo;
-
+    private Riskrepo riskrepo;
     /**
      * Find all list.
      *
@@ -99,5 +101,17 @@ public class CauseTreeService implements CauseTreeServiceI {
            return new ArrayList<>();
        }
        else return findById(id).orElse(null).getCauses();
+    }
+
+    @Override
+    public List<Event> findByRisk(Risk risk) {
+        List<Event> events = new ArrayList<>();
+        List<Event> allevents = findAll();
+        for(Event event : allevents){
+            if (event.getRisk().equals(risk)){
+                events.add(event);
+            }
+        }
+        return events;
     }
 }

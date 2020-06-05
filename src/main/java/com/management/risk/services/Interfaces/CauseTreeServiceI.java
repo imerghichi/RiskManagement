@@ -1,6 +1,7 @@
 package com.management.risk.services.Interfaces;
 
 import com.management.risk.Analysis.TreesAnalysis.CausalTree.Event;
+import com.management.risk.Identification.Risk;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.Optional;
  * The interface Cause tree service i.
  */
 public interface CauseTreeServiceI {
+    List<Event> findByRisk(Risk risk);
+
     /**
      * Find all list.
      *

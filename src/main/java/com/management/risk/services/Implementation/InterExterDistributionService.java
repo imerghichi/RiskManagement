@@ -1,8 +1,13 @@
 package com.management.risk.services.Implementation;
 
+import com.management.risk.Identification.Activity;
 import com.management.risk.Identification.Origin;
+import com.management.risk.Identification.Project;
 import com.management.risk.Identification.Risk;
+import com.management.risk.repositories.ActivityRepo;
+import com.management.risk.repositories.Riskrepo;
 import com.management.risk.services.Interfaces.InternExternDistributionServiceI;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,6 +18,8 @@ import java.util.List;
  */
 @Service
 public class InterExterDistributionService implements InternExternDistributionServiceI {
+
+
     /**
      * Frequencies list.
      *
@@ -31,6 +38,22 @@ public class InterExterDistributionService implements InternExternDistributionSe
         res.add(external);
         res.add(internal);
         return res;
+    }
+
+    @Override
+    public List<Float> frequencies(Activity activity) {
+        return frequencies(activity.getRisks());
+    }
+
+    @Override
+    public List<Float> frequencies(Project project) {
+        List<Float> floats = new ArrayList<>();
+        List<Activity> activities = project.getTaskProjects();
+        for (Activity activity:
+             activities) {
+            floats.addAll(frequencies(activity));
+        }
+        return floats;
     }
 
     /**

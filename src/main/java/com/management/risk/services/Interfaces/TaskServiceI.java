@@ -1,6 +1,7 @@
 package com.management.risk.services.Interfaces;
 
 import com.management.risk.Mitigation.Milstone;
+import com.management.risk.Mitigation.Response;
 import com.management.risk.Mitigation.Task;
 import com.management.risk.Mitigation.Trigger;
 import org.springframework.data.domain.Sort;
@@ -12,6 +13,8 @@ import java.util.Optional;
  * The interface Task service i.
  */
 public interface TaskServiceI {
+    List<Task> findByResponse(Response response);
+
     /**
      * Find all list.
      *

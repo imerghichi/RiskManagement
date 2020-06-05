@@ -1,5 +1,7 @@
 package com.management.risk.Analysis.TreesAnalysis.FaultTree;
 
+import com.management.risk.Identification.Risk;
+
 import javax.persistence.*;
 
 /**
@@ -42,7 +44,20 @@ public class LeafEvent{
      */
     @OneToOne
     private LeafEvent left_event;
+    @OneToOne
+    private Risk risk;
 
+    public OperatorEnum getOperator() {
+        return operator;
+    }
+
+    public Risk getRisk() {
+        return risk;
+    }
+
+    public void setRisk(Risk risk) {
+        this.risk = risk;
+    }
 
     /**
      * Gets id leaf event.

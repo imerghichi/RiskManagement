@@ -1,6 +1,7 @@
 package com.management.risk.services.Interfaces;
 
 import com.management.risk.Identification.Activity;
+import com.management.risk.Identification.Project;
 import mcsimulations.simulation.SimulationResults;
 
 import java.util.List;
@@ -17,4 +18,5 @@ public interface PertMCServiceI {
      * @throws Exception the exception
      */
     SimulationResults pertMC(List<Activity> activities) throws Exception;
+    SimulationResults perMC(Project project) throws Exception;
 }

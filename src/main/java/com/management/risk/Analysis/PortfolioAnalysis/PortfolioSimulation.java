@@ -176,5 +176,21 @@ public class PortfolioSimulation {
         this.portfolio.setMedian(this.getDescriptiveStatistics().getPercentile(50));
         return list;
     }
+    public double simulate (double percentile){
+        int simulation = 0;
+
+        while (simulation < number_of_simulations){
+            int year = 0;
+            BigDecimal totalInvest = this.portfolio.getInitialInvestment();
+            while (year < number_of_years){
+                double rand = getRandomFutureValue();
+                totalInvest = new  BigDecimal(1 + (rand - portfolio.getInflationRate())).multiply(totalInvest);
+                year++;
+            }
+            this.getDescriptiveStatistics().addValue(totalInvest.doubleValue());
+            simulation++;
+        }
+        return this.descriptiveStatistics.getPercentile(percentile);
+    }
 
 }

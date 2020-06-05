@@ -1,5 +1,6 @@
 package com.management.risk.services.Implementation;
 
+import com.management.risk.Identification.Risk;
 import com.management.risk.Mitigation.*;
 import com.management.risk.repositories.ResponseRepo;
 import com.management.risk.services.Interfaces.ResponseServiceI;
@@ -20,6 +21,20 @@ public class ResponseService implements ResponseServiceI {
      */
     @Autowired
     private ResponseRepo responseRepo;
+
+    @Override
+    public Response findByRisk(Risk risk) {
+        List<Response> responses = findAll();
+        Response resultat = new Response();
+        for (Response response:
+             responses) {
+            if(response.getRisk().equals(risk)){
+                resultat = response;
+                break;
+            }
+        }
+        return resultat;
+    }
 
     /**
      * Find all list.

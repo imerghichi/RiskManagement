@@ -1,5 +1,6 @@
 package com.management.risk.services.Interfaces;
 
+import com.management.risk.Identification.Risk;
 import com.management.risk.Mitigation.*;
 import org.springframework.data.domain.Sort;
 
@@ -10,6 +11,7 @@ import java.util.Optional;
  * The interface Response service i.
  */
 public interface ResponseServiceI {
+    Response findByRisk(Risk risk);
     /**
      * Find all list.
      *

@@ -1,6 +1,7 @@
 package com.management.risk.services.Implementation;
 
 import com.management.risk.Analysis.TreesAnalysis.FaultTree.LeafEvent;
+import com.management.risk.Identification.Risk;
 import com.management.risk.repositories.FaultTreeRepo;
 import com.management.risk.services.Interfaces.FaultTreeServiceI;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,20 @@ public class FaultTreeService implements FaultTreeServiceI {
      */
     @Autowired
     private FaultTreeRepo faultTreeRepo;
+
+    @Override
+    public LeafEvent findByRisk(Risk risk) {
+        List<LeafEvent> events = findAll();
+        LeafEvent leafEvent =new LeafEvent();
+        for (LeafEvent leafevent:
+             events) {
+            if (leafevent.getRisk().equals(risk)){
+                leafEvent = leafevent;
+                break;
+            }
+        }
+        return leafEvent;
+    }
 
     /**
      * Find all list.
