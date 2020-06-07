@@ -44,7 +44,7 @@ public class LeafEvent{
      */
     @OneToOne
     private LeafEvent left_event;
-    @OneToOne
+    @OneToOne(orphanRemoval = true)
     private Risk risk;
 
     public OperatorEnum getOperator() {

@@ -61,12 +61,12 @@ public class Activity {
     /**
      * The Risks.
      */
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Risk> risks;
     /**
      * The Predecesors.
      */
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Activity> predecesors;
 
     /**

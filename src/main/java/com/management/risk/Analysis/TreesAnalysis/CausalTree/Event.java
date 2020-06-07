@@ -40,7 +40,8 @@ public class Event {
     /**
      * The Causes.
      */
-    @OneToMany
+
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Event> causes;
   //  @ManyToOne
 //    private Event consequence;

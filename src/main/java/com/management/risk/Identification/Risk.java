@@ -115,19 +115,19 @@ public class Risk {
     /**
      * The Response.
      */
-    @OneToOne
+    @OneToOne(orphanRemoval = true)
     private Response response;
     /**
      * The Leaf event.
      */
-    @OneToOne
+    @OneToOne(orphanRemoval = true)
     private LeafEvent leafEvent;
     /**
      * The Project.
      */
     @ManyToOne
     private Project project;
-    @OneToOne
+    @OneToOne(orphanRemoval = true)
     private Event event;
 
     /**

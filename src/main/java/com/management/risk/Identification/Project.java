@@ -32,12 +32,12 @@ public class Project {
     /**
      * The Team members.
      */
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<TeamMember> teamMembers;
     /**
      * The Task projects.
      */
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Activity> taskProjects;
     /**
      * The Portfolio.

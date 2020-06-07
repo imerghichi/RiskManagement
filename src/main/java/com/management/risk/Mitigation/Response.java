@@ -34,7 +34,7 @@ public  class Response {
     /**
      * The Tasks.
      */
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     protected List<Task> tasks;
     @OneToOne
     protected Risk risk;
