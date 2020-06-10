@@ -71,9 +71,9 @@ public class ActivityController {
      * @param activity the activity
      * @return the activity
      */
-    @PutMapping
+  /*  @PutMapping
     @ResponseBody
     public Activity putActivity(@RequestBody Activity activity){
         return activityService.update(activity);
-    }
+    }*/
 }

@@ -35,7 +35,7 @@ public class InternExternDistributionController {
      * @return the list
      * @throws BusinessException the business exception
      */
-    @GetMapping(value = "/{id}}")
+    @GetMapping(value = "/interextern/{id}}")
     @ResponseBody
     public  List<Float> get(@PathVariable long id) throws BusinessException {
         List<Risk> risks = riskService.findAll();

@@ -16,15 +16,16 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 /**
  * The type Web security config.
  */
+/*
 @Configuration("Authentification")
 @Order(2)
-@EnableWebSecurity
+@EnableWebSecurity*/
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * User details service user details service.
      *
      * @return the user details service
-     */
+
     @Bean
     public UserDetailsService userDetailsService(){
         return new UserDetailsServiceImpl();
@@ -34,7 +35,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * Password encoder b crypt password encoder.
      *
      * @return the b crypt password encoder
-     */
+
     @Bean
     public BCryptPasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -44,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      * Authentication provider dao authentication provider.
      *
      * @return the dao authentication provider
-     */
+
     @Bean
     public DaoAuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
@@ -59,7 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      *
      * @param auth the auth
      * @throws Exception the exception
-     */
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) {
         auth.authenticationProvider(authenticationProvider());
@@ -70,7 +71,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
      *
      * @param http the http
      * @throws Exception the exception
-     */
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
@@ -80,5 +81,5 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().permitAll();
     }
-
+*/
 }

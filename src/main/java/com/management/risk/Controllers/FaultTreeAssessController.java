@@ -37,7 +37,7 @@ public class FaultTreeAssessController {
      * @return the assess
      * @throws BusinessException the business exception
      */
-    @GetMapping(value = "/{id}/{usedMethod")
+    @GetMapping(value = "/assessFT/{id}/{usedMethod")
     @ResponseBody
     public double getAssess(@PathVariable long id, @PathVariable String usedMethod) throws BusinessException {
         if(!faultTreeService.findById(id).isPresent()) throw new BusinessException(Exceptions.NO_FAULT_TREE_FOUND.toString());

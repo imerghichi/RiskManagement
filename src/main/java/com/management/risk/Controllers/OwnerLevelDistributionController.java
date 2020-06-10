@@ -35,7 +35,7 @@ public class OwnerLevelDistributionController {
      * @return the list
      * @throws BusinessException the business exception
      */
-    @GetMapping("/{id}")
+    @GetMapping("/ownerlevel/{id}")
     @ResponseBody
     public List<Float> get(@PathVariable long id) throws BusinessException {
         List<Risk> risks = riskService.findAll();

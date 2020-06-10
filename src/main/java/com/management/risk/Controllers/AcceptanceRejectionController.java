@@ -34,7 +34,7 @@ public class AcceptanceRejectionController {
      * @throws Exception         the exception
      * @throws BusinessException the business exception
      */
-    @GetMapping(value = "/{threshold}/{id}")
+    @GetMapping(value = "/rejection/{threshold}/{id}")
     @ResponseBody
     public double get_rejection_value(@PathVariable double threshold, @PathVariable long id) throws Exception, BusinessException {
         if (threshold>1 ||  threshold<0) throw new BusinessException(Exceptions.THRESHOLD_EXCEPTION.toString());
