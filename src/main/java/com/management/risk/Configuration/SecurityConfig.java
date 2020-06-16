@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * The type Security config.
  */
 @Configuration("H2")
-@Order(1)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
     /**
      * Configure.

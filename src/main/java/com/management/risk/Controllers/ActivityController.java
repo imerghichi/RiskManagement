@@ -2,9 +2,11 @@ package com.management.risk.Controllers;
 
 import com.management.risk.Identification.Activity;
 import com.management.risk.services.Implementation.ActivityService;
+import com.management.risk.services.Implementation.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.websocket.server.PathParam;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +20,7 @@ public class ActivityController {
      */
     @Autowired
     private ActivityService activityService;
+    private ProjectService projectService;
 
     /**
      * Getallact list.
@@ -29,6 +32,22 @@ public class ActivityController {
     public List<Activity> getallact(){
         return activityService.findAll();
     }
+
+
+    @GetMapping(value= "/actsbyproject/{id}")
+    @ResponseBody
+    public List<Activity> getbyproject(@PathVariable long id) {
+        return activityService.findByProject(projectService.findById(id).orElse(null));
+    }
+
+    @PostMapping (value = "/actforproject/{id}", consumes="application/json")
+    @ResponseBody
+    public Activity postactforproject(@RequestBody Activity activity, @PathVariable long id) throws Exception {
+        Activity activity1 = activity;
+        activity1.setProject(projectService.findById(id).orElseThrow(Exception::new));
+        return activityService.save(activity1);
+    }
+
 
     /**
      * Get activity by id optional.
@@ -59,7 +78,7 @@ public class ActivityController {
      * @param activity the activity
      * @return the activity
      */
-    @PostMapping(value = "/add/")
+    @PostMapping(value = "/add/", consumes="application/json")
     @ResponseBody
     public Activity postActivity(@RequestBody Activity activity){
         return activityService.save(activity);
@@ -76,4 +95,7 @@ public class ActivityController {
     public Activity putActivity(@RequestBody Activity activity){
         return activityService.update(activity);
     }*/
+
+
+
 }

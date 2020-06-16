@@ -74,6 +74,13 @@ public class RiskController {
         return riskService.findByActivity(activity);
     }
 
+    @PostMapping ("/activitypostrisk/{id}")
+    public Risk postRiskforact(@RequestBody Risk risk, @PathVariable long id) throws Exception {
+        Risk risk1 = risk;
+        risk1.setTaskProject(activityService.findById(id).orElseThrow(Exception::new));
+        return riskService.save(risk1);
+    }
+
     /**
      * Gets by project.
      *
